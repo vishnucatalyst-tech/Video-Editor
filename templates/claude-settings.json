@@ -1,0 +1,19 @@
+{
+  "//": "Optional. Copy to .claude/settings.json to auto-approve safe editing tools (setup guide §2). Destructive commands still ask.",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit(brands/**)",
+      "Write(brands/**)",
+      "Bash(source ~/reels-env/bin/activate)",
+      "Bash(python tools/:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ffprobe:*)",
+      "Bash(magick:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx remotion:*)"
+    ],
+    "ask": ["Bash(rm:*)", "Bash(mv:*)", "Bash(git push:*)", "Bash(git reset:*)", "Bash(yt-dlp:*)"]
+  }
+}

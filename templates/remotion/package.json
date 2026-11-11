@@ -1,0 +1,23 @@
+{
+  "name": "weequb-motion",
+  "private": true,
+  "description": "Remotion templates for Weequb Reels: animated captions (and a base for lower thirds, logo stings, progress bars)",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:captions": "remotion render src/index.ts Captions"
+  },
+  "dependencies": {
+    "@remotion/captions": "4.0.543",
+    "@remotion/cli": "4.0.543",
+    "@remotion/google-fonts": "4.0.543",
+    "@remotion/media-utils": "4.0.543",
+    "@remotion/transitions": "4.0.543",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.543"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "typescript": "7.0.2"
+  }
+}

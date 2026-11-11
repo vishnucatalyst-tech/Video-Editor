@@ -1,5 +1,29 @@
-node_modules
-dist
+# Dependencies / builds
+node_modules/
+dist/
 *.tsbuildinfo
+__pycache__/
+*.pyc
 .DS_Store
-coverage
+
+# Footage and renders stay off git — commit briefs, cut lists and edit logs only.
+brands/**/raw/*
+!brands/**/raw/.gitkeep
+brands/**/work/*
+!brands/**/work/cutlist.json
+!brands/**/work/cutlist.md
+!brands/**/work/words.json
+brands/**/export/*.mp4
+brands/**/export/*.mov
+brands/**/export/*.jpg
+
+# Licensed audio libraries (large; keep licences/receipts alongside, not in git)
+music/**/*.mp3
+music/**/*.wav
+music/**/*.m4a
+music/**/*.flac
+sfx/**/*.mp3
+sfx/**/*.wav
+
+# Output of scripts/smoke_test.sh
+brands/smoke-test/

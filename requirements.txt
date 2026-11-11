@@ -1,0 +1,12 @@
+# Weequb Reels helper scripts (Python 3.11+). Install into ~/reels-env via scripts/setup.sh.
+faster-whisper>=1.0        # word-level subtitles (English + Tamil)
+scenedetect[opencv]>=0.6   # cut points in raw footage
+librosa>=0.10              # beat detection
+pydub>=0.25
+audioop-lts; python_version >= "3.13"   # pydub needs audioop, removed from Python 3.13
+moviepy>=1.0
+numpy
+pillow
+opencv-python
+yt-dlp                     # reference Reels for analysis only — never reuse
+# openai-whisper is optional (pulls in PyTorch, several GB); faster-whisper is what the tools use.

@@ -6,14 +6,48 @@ on:
   pull_request:
 
 jobs:
-  build:
+  tools:
+    name: Reels tools (Python)
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg libgl1
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover tests -v
+      - run: bash scripts/smoke_test.sh
+
+  remotion:
+    name: Remotion template
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: templates/remotion
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: templates/remotion/package-lock.json
+      - run: npm ci
+      - run: npx tsc -p .
+
+  web-editor:
+    name: Web editor
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web-editor
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web-editor/package-lock.json
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
