@@ -80,6 +80,7 @@ Open Claude Code in this repo and ask in plain words (English, Tamil or Tanglish
 | style-dna | You share a reference video. Measures it and writes a reusable style guide |
 | app-handoff | Someone edits in CapCut / Premiere / DaVinci. Edit plan, EDL, SRT, steps |
 | repurpose | One long video → several Reels |
+| ai-broll | The Reel needs shots you don't have. Writes Grok Imagine / Google Flow prompts, then cuts in the clips you download |
 | timeline-handoff | You want to drag things yourself in the web editor |
 | brand-onboard | New brand, or a brand with placeholder values |
 

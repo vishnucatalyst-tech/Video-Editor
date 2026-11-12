@@ -19,6 +19,7 @@ Never make the user repeat a preference that's already recorded.
 - A long video to cut into several Reels → **repurpose** instead of the steps below.
 - **reel-brief**: fill the 12-point `brief.md` and ask up to 5 questions for anything missing. Wait for the answers. Don't invent the creative.
 - The user shares a reference video ("like this one") → **style-dna** first.
+- The edit needs shots the footage doesn't have, or the user mentions Grok / Flow / Veo → **ai-broll** (prompts for the user to generate in the apps, then import).
 
 ## 2. Probe → 3. Transcribe
 **new-reel** (probe), then **transcribe**. For talking-head footage, transcribe the clip in source time (`--input raw/<clip> --offset 0`), then jump-cut it with `tools/trim_silence.py` (pauses > 0.4 s and filler words out, punch-ins on alternate pieces).
