@@ -7,7 +7,7 @@ argument-hint: "[brand] [topic or project path]"
 
 You are running the Reels pipeline in this repo. `CLAUDE.md` holds the binding output spec and quality rules. This skill is the order of operations: load the skill named at each stage, because it holds the exact commands and checks.
 
-Always start with `source ~/reels-env/bin/activate` and work from the repo root. If a tool is missing, run `python tools/doctor.py` and report what to install. Don't improvise substitutes.
+Always start with `source scripts/activate.sh` and work from the repo root. If a tool is missing, run `python tools/doctor.py` and report what to install. Don't improvise substitutes.
 
 ## 0. Know the taste before touching anything
 Read these, in this precedence, every time:

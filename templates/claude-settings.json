@@ -5,7 +5,7 @@
       "Read",
       "Edit(brands/**)",
       "Write(brands/**)",
-      "Bash(source ~/reels-env/bin/activate)",
+      "Bash(source scripts/activate.sh)",
       "Bash(python tools/:*)",
       "Bash(ffmpeg:*)",
       "Bash(ffprobe:*)",

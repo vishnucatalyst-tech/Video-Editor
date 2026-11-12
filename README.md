@@ -8,6 +8,8 @@ Once it's set up, every brand edit works the same way: drop footage into a proje
 
 ## Setup (once per machine)
 
+**Windows 10/11:** follow [docs/SETUP-WINDOWS.md](docs/SETUP-WINDOWS.md). It covers step-by-step install, Flow, and your first Reel.
+
 ### 1. Machine prerequisites
 
 | Tool | Why | Mac (Homebrew) | Windows (winget) |
@@ -35,7 +37,7 @@ Auto-approve only the safe tools: file reads, file writes inside `brands/`, and 
 
 ```bash
 bash scripts/setup.sh        # creates ~/reels-env, installs requirements.txt and the Remotion template, runs the doctor
-source ~/reels-env/bin/activate
+source scripts/activate.sh
 python tools/doctor.py       # re-check any time
 ```
 
