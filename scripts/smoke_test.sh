@@ -27,6 +27,8 @@ JSON
 $PY tools/captions.py "$P"
 $PY tools/render.py "$P" --preview 2>&1 | grep -v '^\$'
 $PY tools/render.py "$P" --final 2>&1 | grep -v '^\$' | tee "$P/work/final.log"
+$PY tools/export_edit.py "$P"
+for f in edit-plan.md edit.edl; do test -s "$P/export/$f" || { echo "missing export/$f"; exit 1; }; done
 grep -q "✗" "$P/work/final.log" && { echo "SMOKE TEST FAILED"; exit 1; }
 for f in final.mp4 cover.jpg edit-log.md; do test -s "$P/export/$f" || { echo "missing export/$f"; exit 1; }; done
 echo "SMOKE TEST PASSED"

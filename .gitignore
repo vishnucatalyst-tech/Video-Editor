@@ -27,3 +27,6 @@ sfx/**/*.wav
 
 # Output of scripts/smoke_test.sh
 brands/smoke-test/
+
+# Reference videos are analysed, never redistributed
+knowledge/references/*/source.*

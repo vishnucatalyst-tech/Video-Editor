@@ -1,6 +1,7 @@
 ---
-description: Transcribe the voiceover with faster-whisper (word-level JSON + SRT)
-argument-hint: [project] [--language ta|en|auto] [--model small|medium|large-v3]
+name: transcribe
+description: "Transcribe a Reel's voiceover with faster-whisper into word-level JSON + SRT (English, Tamil, Tanglish). Use when a project has a voiceover or talking-head audio that needs captions or timing."
+argument-hint: "[project] [--language ta|en|auto] [--model small|medium|large-v3]"
 ---
 Transcribe the voice track for the current project. Arguments: $ARGUMENTS
 

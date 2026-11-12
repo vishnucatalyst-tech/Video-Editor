@@ -1,6 +1,7 @@
 ---
-description: Ask the brand questions and write BRAND.md
-argument-hint: <brand>
+name: brand-onboard
+description: "Onboard a brand: ask the brand questions and write BRAND.md (settings front matter + brand bible). Use for a new brand, or when a BRAND.md is missing, still has placeholders/DEMO values, or the brand's look changes."
+argument-hint: "<brand>"
 ---
 Onboard the brand `$ARGUMENTS`.
 

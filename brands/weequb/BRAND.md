@@ -84,3 +84,9 @@ Three adjectives: **___, ___, ___** (e.g. bold, witty, premium)
 | Link | What to borrow |
 |---|---|
 | | |
+
+## Style reference
+- none yet
+
+## Learned preferences
+<!-- Added automatically from feedback (reel-feedback / learn-editing). One rule per line, dated, with numbers. -->
