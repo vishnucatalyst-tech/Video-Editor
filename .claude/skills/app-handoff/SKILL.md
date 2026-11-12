@@ -6,7 +6,7 @@ argument-hint: "[project] [capcut|premiere|davinci|finalcut|vn]"
 # App hand-off: the edit, in the format the editor's tool needs
 
 ## 1. Export
-`source ~/reels-env/bin/activate && python tools/export_edit.py <project>` (add `--start-tc 01:00:00:00` for Premiere's default sequence start).
+`source scripts/activate.sh && python tools/export_edit.py <project>` (add `--start-tc 01:00:00:00` for Premiere's default sequence start).
 It writes `export/edit-plan.md`, `export/edit.edl` and `export/captions.srt` from `work/cutlist.json` and `work/words.json`. Clips are referenced by file name, so the editor relinks them to `raw/`.
 
 ## 2. Add the tool-specific layer

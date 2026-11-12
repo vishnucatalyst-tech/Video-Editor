@@ -100,8 +100,9 @@ def video_graph(cut: dict, proj, brand, W: int, H: int, fps: int, mode: str) -> 
             inputs += ["-i", cap]
             chains.append(f"[{idx}:v]scale={W}:{H},format=yuva420p[capv];[{last}][capv]overlay=0:0:shortest=0:eof_action=pass[vcap]")
         else:
-            fontdir = prepare_fonts(proj, brand)
-            chains.append(f"[{last}]subtitles=filename='{esc(cap)}':fontsdir='{esc(str(fontdir))}'[vcap]")
+            # Relative to the project (ffmpeg runs there): avoids Windows drive letters ("C:") inside the filter.
+            fontdir = prepare_fonts(proj, brand).relative_to(proj.path).as_posix()
+            chains.append(f"[{last}]subtitles=filename='{esc(cap)}':fontsdir='{esc(fontdir)}'[vcap]")
         last = "vcap"
     elif cap:
         print(f"⚠ captions file {cap} not found — rendering without captions (run /captions)")
@@ -138,10 +139,13 @@ def prepare_fonts(proj, brand) -> Path:
         if src.exists():
             for f in src.rglob("*"):
                 if f.suffix.lower() in (".ttf", ".otf", ".ttc"):
+                    if (d / f.name).exists():
+                        continue
                     try:
                         os.symlink(f.resolve(), d / f.name)
-                    except FileExistsError:
-                        pass
+                    except (OSError, NotImplementedError):
+                        # Windows refuses symlinks without admin/Developer Mode: copy instead.
+                        shutil.copy2(f, d / f.name)
     return d
 
 

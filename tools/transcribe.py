@@ -56,7 +56,7 @@ def main():
     try:
         from faster_whisper import WhisperModel
     except ImportError:
-        die("faster-whisper is not installed — activate the venv: source ~/reels-env/bin/activate")
+        die("faster-whisper is not installed — activate the venv: source scripts/activate.sh")
 
     print(f"Transcribing {src.name} with faster-whisper '{args.model}' (language={args.language}, offset={offset:+.2f}s)…")
     model = WhisperModel(args.model, device=args.device, compute_type="int8" if args.device in ("auto", "cpu") else "float16")

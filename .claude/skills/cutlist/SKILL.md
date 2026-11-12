@@ -6,7 +6,7 @@ argument-hint: "[project] [--music FILE] [--length SEC]"
 Draft the cut list for the current project. Arguments: $ARGUMENTS
 
 1. Read `BRAND.md` (pacing, max shot length, learned preferences), any linked style reference in `knowledge/references/`, `knowledge/editor-preferences.md`, and `brief.md` (length, hook, must-include shots). Talking-head footage: use `python tools/trim_silence.py <project> --source raw/<clip>` instead of scene detection, then refine.
-2. Run `source ~/reels-env/bin/activate && python tools/cutlist.py $ARGUMENTS`. Pass `--length` if the brief gives a number.
+2. Run `source scripts/activate.sh && python tools/cutlist.py $ARGUMENTS`. Pass `--length` if the brief gives a number.
 3. Review the draft against the brief and CLAUDE.md quality rules, then improve `work/cutlist.json` directly:
    - The hook lands in the first 1.5 s: the strongest visual plus the strongest line.
    - Must-include shots from the brief are present. Order serves the story.

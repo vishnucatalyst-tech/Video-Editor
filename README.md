@@ -8,6 +8,8 @@ Once it's set up, every brand edit works the same way: drop footage into a proje
 
 ## Setup (once per machine)
 
+**Windows 10/11:** follow [docs/SETUP-WINDOWS.md](docs/SETUP-WINDOWS.md). It covers step-by-step install, Flow, and your first Reel.
+
 ### 1. Machine prerequisites
 
 | Tool | Why | Mac (Homebrew) | Windows (winget) |
@@ -35,7 +37,7 @@ Auto-approve only the safe tools: file reads, file writes inside `brands/`, and 
 
 ```bash
 bash scripts/setup.sh        # creates ~/reels-env, installs requirements.txt and the Remotion template, runs the doctor
-source ~/reels-env/bin/activate
+source scripts/activate.sh
 python tools/doctor.py       # re-check any time
 ```
 
@@ -80,10 +82,24 @@ Open Claude Code in this repo and ask in plain words (English, Tamil or Tanglish
 | style-dna | You share a reference video. Measures it and writes a reusable style guide |
 | app-handoff | Someone edits in CapCut / Premiere / DaVinci. Edit plan, EDL, SRT, steps |
 | repurpose | One long video → several Reels |
+| ai-broll | The Reel needs shots you don't have. Writes Grok Imagine / Google Flow prompts, then cuts in the clips you download |
 | timeline-handoff | You want to drag things yourself in the web editor |
 | brand-onboard | New brand, or a brand with placeholder values |
 
 **How it learns:** give it material whenever you like (PDFs, notes, article links, reference videos, or simply your corrections). The agent extracts specific rules with numbers and files each one in the right place: the craft skills, a brand's `BRAND.md` → "Learned preferences", `knowledge/editor-preferences.md` for your personal taste, or `knowledge/references/` for styles. It logs every source in `knowledge/INDEX.md`. A correction you give twice becomes a saved rule, so you don't repeat yourself.
+
+## Connect Google Flow (optional, for AI B-roll)
+
+[flow-mcp](https://github.com/GTAI-1/flow-mcp) is an unofficial, open-source tool that drives Google Flow in its own Chrome window on **your computer**, using Flow's daily credits. Once it's connected, the **ai-broll** skill generates B-roll in Flow by itself. Without it, the skill writes prompts for you to paste into Flow or Grok Imagine.
+It needs macOS or Windows, Google Chrome, Node.js 22 or newer, and a screen that stays awake while it runs. It can't run in a cloud session. Since it automates Flow's website, which Google may not allow, use it at your own risk on your own account.
+
+```bash
+git clone https://github.com/GTAI-1/flow-mcp.git ~/flow-mcp   # reviewed at commit 1d17b7b
+cd ~/flow-mcp && npm install && npm run build
+npm run login        # a Chrome window opens: sign into your Google account there, by hand, then open Flow
+claude mcp add --scope user flow -- node ~/flow-mcp/dist/index.js
+```
+Then open Claude Code in this repo. `/mcp` should list **flow**. The tool never types your password: it reuses the session from that Chrome window, stored in `~/.flow-mcp/chrome-profile`.
 
 ## Slash commands
 

@@ -4,7 +4,7 @@
 # Usage: bash scripts/smoke_test.sh   (leaves brands/smoke-test/ behind for inspection; it is git-ignored)
 set -euo pipefail
 cd "$(dirname "$0")/.."
-PY=${PYTHON:-python3}
+PY=${PYTHON:-$(command -v python >/dev/null 2>&1 && echo python || echo python3)}
 DATE=2000-01-01
 P=brands/smoke-test/projects/${DATE}_smoke-test
 rm -rf brands/smoke-test
