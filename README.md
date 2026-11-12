@@ -86,6 +86,19 @@ Open Claude Code in this repo and ask in plain words (English, Tamil or Tanglish
 
 **How it learns:** give it material whenever you like (PDFs, notes, article links, reference videos, or simply your corrections). The agent extracts specific rules with numbers and files each one in the right place: the craft skills, a brand's `BRAND.md` → "Learned preferences", `knowledge/editor-preferences.md` for your personal taste, or `knowledge/references/` for styles. It logs every source in `knowledge/INDEX.md`. A correction you give twice becomes a saved rule, so you don't repeat yourself.
 
+## Connect Google Flow (optional, for AI B-roll)
+
+[flow-mcp](https://github.com/GTAI-1/flow-mcp) is an unofficial, open-source tool that drives Google Flow in its own Chrome window on **your computer**, using Flow's daily credits. Once it's connected, the **ai-broll** skill generates B-roll in Flow by itself. Without it, the skill writes prompts for you to paste into Flow or Grok Imagine.
+It needs macOS or Windows, Google Chrome, Node.js 22 or newer, and a screen that stays awake while it runs. It can't run in a cloud session. Since it automates Flow's website, which Google may not allow, use it at your own risk on your own account.
+
+```bash
+git clone https://github.com/GTAI-1/flow-mcp.git ~/flow-mcp   # reviewed at commit 1d17b7b
+cd ~/flow-mcp && npm install && npm run build
+npm run login        # a Chrome window opens: sign into your Google account there, by hand, then open Flow
+claude mcp add --scope user flow -- node ~/flow-mcp/dist/index.js
+```
+Then open Claude Code in this repo. `/mcp` should list **flow**. The tool never types your password: it reuses the session from that Chrome window, stored in `~/.flow-mcp/chrome-profile`.
+
 ## Slash commands
 
 | Command | What it does |

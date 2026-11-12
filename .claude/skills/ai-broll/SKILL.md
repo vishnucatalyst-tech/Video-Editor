@@ -5,8 +5,11 @@ argument-hint: "[project] [number of shots]"
 ---
 # AI B-roll with Grok Imagine and Google Flow (subscription accounts)
 
-The user has **subscriptions only** (SuperGrok, Google Flow). Neither has an API, so you **never log in, automate their web apps, or use third-party wrappers** that drive their accounts. That breaks the platforms' terms and exposes credentials. The user generates in the apps; you plan the shots, write the prompts, and import the results.
-(If the user later gets API keys — xAI API or the Gemini API — tell them generation can be automated, and ask before building it. API use is billed separately from the subscriptions.)
+The user has **subscriptions only** (SuperGrok, Google Flow), and neither has an official API. Two routes:
+- **Flow, automatic, when the `flow_*` tools are available.** The user has installed **flow-mcp** on their own computer, signed into Google by hand in its Chrome window, and connected it to Claude Code. See "Connect Google Flow" in README.md. Use step 3b.
+- **Manual, always available (Grok Imagine; Flow without flow-mcp).** The user generates in the app from your prompts. Use step 3a.
+You never type, ask for or store a Google, X or other password, and you never sign into an account yourself. If the `flow_*` tools report a sign-in problem, ask the user to fix it in the flow-mcp Chrome window (`npm run login`). flow-mcp is unofficial automation of Flow; the user chose it for their own account.
+If the user later gets API keys (xAI API, or the Gemini API for Veo), generation could be automated officially. Say so and ask before building it: API use is billed separately from the subscriptions.
 
 ## 1. Find the B-roll slots
 From `brief.md`, `work/cutlist.json` and the transcript (`work/words.json`), list the shots the edit needs but the footage lacks: product close-up, a mood/establishing shot, a visual for an abstract line ("save hours every week"), a clean background behind text, a pattern break every 3–5 s in fast Reels.
@@ -32,8 +35,15 @@ If there's a product, ask the user for a clean product photo. Both apps can anim
 
 Check `knowledge/broll-prompts.md` first: reuse prompt patterns that worked, and skip ones marked bad.
 
-## 3. Hand over to the user
+## 3a. Manual route: hand over to the user
 Short steps: open Grok Imagine or Flow → choose **9:16 / portrait** → paste the prompt (attach the product photo if given) → generate 2–4 takes → download the best → name it as listed (`raw/broll_B1.mp4`) → drop it into the project's `raw/` folder → tell the agent.
+
+## 3b. Automatic route: flow-mcp
+1. Check that it's connected and signed in: `flow_status`. If it isn't signed in, stop and ask the user to sign in by hand (above).
+2. Show the user the shot list and the expected credit use. Flow gives 50 free credits a day, and more on paid plans. Get an OK before queuing. **Always ask** before anything that shows no credit quote (agent mode, `flow_continue_shot`).
+3. `flow_generate` with `project` = this Reel's folder name and one scene per slot: the Flow prompt from `work/broll-prompts.md`, **aspect ratio portrait / 9:16**, and the file name `broll_B1`… Attach the product photo where image-to-video was planned.
+4. `flow_wait` until `finished` is true (it returns within about 40 s; call again). Then copy each returned file into the project: `cp "<path>" <project>/raw/broll_B1.mp4`. Failed jobs: `flow_retry` once, then report.
+5. Continue with step 4. Use only the clips. flow-mcp also has its own captions, narration and assembly tools, but the Reel is still edited, captioned and rendered by this pipeline, so the brand style and the Instagram spec stay intact.
 
 ## 4. Import and cut in
 1. `python tools/probe.py <project>`: check each `broll_*` file for 9:16 (or plan a crop), resolution (720p clips are upscaled, which is fine for 1–3 s of B-roll), and duration.
