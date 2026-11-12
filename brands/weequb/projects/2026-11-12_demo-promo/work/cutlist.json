@@ -1,0 +1,107 @@
+{
+  "length": 16.5,
+  "fps": 30,
+  "keep_source_audio": false,
+  "source_audio_gain_db": 0,
+  "voiceover": null,
+  "music": {
+    "src": "raw/music.wav",
+    "in": 0.0,
+    "gain_db": 0,
+    "duck_db": 0
+  },
+  "captions": "work/captions.mov",
+  "logo": {
+    "from": 0,
+    "to": 13.5
+  },
+  "segments": [
+    {
+      "src": "raw/01_hook_zoom.mp4",
+      "in": 1.0,
+      "out": 2.5,
+      "note": "hook: fastest zoom + STOP SCROLLING!",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/02_raw_clips.mp4",
+      "in": 0.0,
+      "out": 2.5,
+      "note": "landscape source → blurred-background fill",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/01_hook_zoom.mp4",
+      "in": 3.0,
+      "out": 5.0,
+      "note": "punch-in on 'Scroll-stopping'",
+      "punch_in": 1.1
+    },
+    {
+      "src": "raw/04_beat_viz.mp4",
+      "in": 0.5,
+      "out": 3.0,
+      "note": "waveform of the track: cut on the beat",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/05_phone_mockup.png",
+      "in": 0.0,
+      "out": 2.5,
+      "note": "still with Ken Burns push",
+      "punch_in": 1.0,
+      "still": true
+    },
+    {
+      "src": "raw/03_gradient_flow.mp4",
+      "in": 1.0,
+      "out": 3.5,
+      "note": "brand colours; Tamil caption line",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/06_end_card.png",
+      "in": 0.0,
+      "out": 3.0,
+      "note": "logo end card + CTA",
+      "punch_in": 1.0,
+      "still": true
+    }
+  ],
+  "beats": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    8.5,
+    9.0,
+    9.5,
+    10.0,
+    10.5,
+    11.0,
+    11.5,
+    12.0,
+    12.5,
+    13.0,
+    13.5,
+    14.0,
+    14.5,
+    15.0,
+    15.5,
+    16.0,
+    16.5
+  ]
+}

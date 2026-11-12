@@ -45,7 +45,7 @@ Run tools from the repo root. Each takes the project folder as its first argumen
 | Final | `python tools/render.py <project> --final` | `export/final.mp4`, `cover.jpg`, `captions.srt`, `edit-log.md` |
 | Health check | `python tools/doctor.py` | — |
 
-- `work/cutlist.json` is what gets rendered. To change the edit, edit that file: reorder or retime segments, set `punch_in` (1.05–1.15), change `music.gain_db` / `duck_db`, or toggle `keep_source_audio`. Keep `cutlist.md` in step when you explain the changes.
+- `work/cutlist.json` is what gets rendered. To change the edit, edit that file: reorder or retime segments, set `punch_in` (1.05–1.15), limit the logo watermark with `"logo": {"from": 0, "to": <sec>}` (e.g. to keep it off an end card), change `music.gain_db` / `duck_db`, or toggle `keep_source_audio`. Keep `cutlist.md` in step when you explain the changes.
 - Brand settings the tools use (colours, caption font/style/position, pacing, fill mode, logo, LUT) live in the YAML front matter at the top of each `BRAND.md`. The prose below it is the brand bible: read it, follow it.
 - Voiceover files are detected by name (`vo.*`, `voiceover.*`, `narration.*`); music by `music.*`, `track.*`, `bgm.*`. Otherwise pass `--music` / `--input`.
 - Talking-head footage without a separate voiceover: run `/preview` first, then transcribe `work/preview.mp4` so caption times match the edit.

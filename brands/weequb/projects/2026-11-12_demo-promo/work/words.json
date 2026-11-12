@@ -1,0 +1,152 @@
+[
+ {
+  "word": "Stop",
+  "start": 0.05,
+  "end": 0.45,
+  "prob": 1.0
+ },
+ {
+  "word": "scrolling!",
+  "start": 0.47,
+  "end": 1.45,
+  "prob": 1.0
+ },
+ {
+  "word": "Raw",
+  "start": 1.6,
+  "end": 1.98,
+  "prob": 1.0
+ },
+ {
+  "word": "clips",
+  "start": 2.0,
+  "end": 2.38,
+  "prob": 1.0
+ },
+ {
+  "word": "in.",
+  "start": 2.4,
+  "end": 3.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Scroll-stopping",
+  "start": 4.1,
+  "end": 4.44,
+  "prob": 1.0
+ },
+ {
+  "word": "Reels",
+  "start": 4.46,
+  "end": 4.8,
+  "prob": 1.0
+ },
+ {
+  "word": "out.",
+  "start": 4.82,
+  "end": 5.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Every",
+  "start": 6.1,
+  "end": 6.32,
+  "prob": 1.0
+ },
+ {
+  "word": "cut",
+  "start": 6.34,
+  "end": 6.56,
+  "prob": 1.0
+ },
+ {
+  "word": "on",
+  "start": 6.58,
+  "end": 6.8,
+  "prob": 1.0
+ },
+ {
+  "word": "the",
+  "start": 6.82,
+  "end": 7.04,
+  "prob": 1.0
+ },
+ {
+  "word": "beat.",
+  "start": 7.06,
+  "end": 8.4,
+  "prob": 1.0
+ },
+ {
+  "word": "Captions",
+  "start": 8.6,
+  "end": 8.82,
+  "prob": 1.0
+ },
+ {
+  "word": "in",
+  "start": 8.84,
+  "end": 9.06,
+  "prob": 1.0
+ },
+ {
+  "word": "your",
+  "start": 9.08,
+  "end": 9.3,
+  "prob": 1.0
+ },
+ {
+  "word": "brand",
+  "start": 9.32,
+  "end": 9.54,
+  "prob": 1.0
+ },
+ {
+  "word": "style.",
+  "start": 9.56,
+  "end": 10.9,
+  "prob": 1.0
+ },
+ {
+  "word": "English.",
+  "start": 11.1,
+  "end": 11.48,
+  "prob": 1.0
+ },
+ {
+  "word": "தமிழ்.",
+  "start": 11.5,
+  "end": 11.88,
+  "prob": 1.0
+ },
+ {
+  "word": "Tanglish.",
+  "start": 11.9,
+  "end": 13.4,
+  "prob": 1.0
+ },
+ {
+  "word": "DM",
+  "start": 13.7,
+  "end": 13.98,
+  "prob": 1.0
+ },
+ {
+  "word": "us",
+  "start": 14.0,
+  "end": 14.28,
+  "prob": 1.0
+ },
+ {
+  "word": "to",
+  "start": 14.3,
+  "end": 14.58,
+  "prob": 1.0
+ },
+ {
+  "word": "start.",
+  "start": 14.6,
+  "end": 16.3,
+  "prob": 1.0
+ }
+]

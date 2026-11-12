@@ -113,6 +113,9 @@ def video_graph(cut: dict, proj, brand, W: int, H: int, fps: int, mode: str) -> 
         when = str(brand.get("logo_when", "always"))
         length = cut["length"]
         enable = f":enable='gte(t,{max(0, length - 2):.2f})'" if when == "end" else ""
+        if isinstance(cut.get("logo"), dict):  # e.g. {"from": 0, "to": 13.5} to keep it off an end card
+            lo, hi = float(cut["logo"].get("from", 0)), float(cut["logo"].get("to", length))
+            enable = f":enable='between(t,{lo:.2f},{hi:.2f})'"
         idx = sum(1 for a in inputs if a == "-i")
         inputs += ["-i", str(logo)]
         chains.append(f"[{idx}:v]scale={lw}:-1,format=rgba,colorchannelmixer=aa={float(brand.get('logo_opacity', 0.9))}[lg];"
@@ -304,11 +307,11 @@ def main():
     if args.final:
         m = measure_loudness(mix_wav, proj.path)
         af = (f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
-              f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,aresample=48000"
-              if m else f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11,aresample=48000")
+              f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,aresample=192000,alimiter=limit=0.75:level=disabled:attack=1:release=40,aresample=48000"
+              if m else f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11,aresample=192000,alimiter=limit=0.75:level=disabled:attack=1:release=40,aresample=48000")
         print(f"[2/3] Loudness measured {m.get('input_i', '?')} LUFS → normalising to {TARGET_LUFS:g} LUFS (two-pass)")
     else:
-        af = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11,aresample=48000"
+        af = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11,aresample=192000,alimiter=limit=0.75:level=disabled:attack=1:release=40,aresample=48000"
 
     # 3. Video + mux
     v_in, v_graph, v_out = video_graph(cut, proj, brand, W, H, fps, mode)

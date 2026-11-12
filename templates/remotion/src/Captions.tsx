@@ -77,6 +77,8 @@ function useGoogleFont(family: string) {
 
 export const Captions: React.FC<CaptionProps> = (props) => {
   useGoogleFont(props.font);
+  // Fallback for Tamil script, which Latin display fonts don't cover.
+  useGoogleFont('Noto Sans Tamil');
   const { fps } = useVideoConfig();
   const pages = toPages(props.words, props.style);
 
@@ -108,7 +110,7 @@ const PageView: React.FC<{ page: Page; props: CaptionProps }> = ({ page, props }
   return (
     <div
       style={{
-        fontFamily: `${props.font}, Inter, sans-serif`,
+        fontFamily: `'${props.font}', 'Noto Sans Tamil', Inter, sans-serif`,
         fontWeight: 800,
         fontSize: props.style === 'minimal' ? 64 : 84,
         lineHeight: 1.15,
