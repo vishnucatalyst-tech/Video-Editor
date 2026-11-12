@@ -1,10 +1,12 @@
-import { useRef, useSyncExternalStore } from 'react';
+import { useRef, useState, useSyncExternalStore } from 'react';
 import { useEditor } from '../store/editor';
 import { autosaveStatus, exportProjectJson, readProjectJson } from '../lib/autosave';
 import { persist } from '../lib/persist';
 import { mediaRegistry } from '../lib/mediaRegistry';
 import { toast } from './Toasts';
 import { Icon } from './Icon';
+import { ReelDialog } from './ReelDialog';
+import { openReelFolder, saveReel, type SaveResult } from '../lib/reelIO';
 
 export function Toolbar({ onExport, onHelp }: { onExport: () => void; onHelp: () => void }) {
   const name = useEditor((s) => s.project.settings.name);
@@ -15,6 +17,37 @@ export function Toolbar({ onExport, onHelp }: { onExport: () => void; onHelp: ()
   const updateSettings = useEditor((s) => s.updateSettings);
   const saveState = useSyncExternalStore(autosaveStatus.subscribe, autosaveStatus.get);
   const fileRef = useRef<HTMLInputElement>(null);
+  const reel = useEditor((s) => s.project.reel);
+  const [busy, setBusy] = useState(false);
+  const [saved, setSaved] = useState<SaveResult | null>(null);
+
+  const openReel = async () => {
+    const hasWork = Object.keys(useEditor.getState().project.clips).length > 0;
+    if (hasWork && !confirm('Open a Reel project? It replaces the current timeline (save it first if you need it).')) return;
+    setBusy(true);
+    try {
+      const r = await openReelFolder();
+      if (r) {
+        toast(`Opened ${r.name}: ${r.shots} shots, ${r.captions} captions${r.writable ? '' : ' (read-only in this browser)'}`);
+        if (r.missing.length) toast(`Missing in the folder: ${r.missing.join(', ')}`, 'error');
+      }
+    } catch (e) {
+      toast((e as Error).message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const saveToReel = async () => {
+    setBusy(true);
+    try {
+      setSaved(await saveReel(useEditor.getState().project));
+    } catch (e) {
+      toast((e as Error).message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const newProject = async () => {
     if (!confirm('Start a new project? The current project and its imported media will be removed.')) return;
@@ -81,6 +114,15 @@ export function Toolbar({ onExport, onHelp }: { onExport: () => void; onHelp: ()
           }}
         />
         <span className="divider" />
+        <button className="btn ghost" onClick={openReel} disabled={busy} title="Open a Weequb Reel project folder (brands/<brand>/projects/<date_topic>) to edit its cut list on the timeline">
+          <Icon name="film" /> Open Reel
+        </button>
+        {reel && (
+          <button className="btn toggle on" onClick={saveToReel} disabled={busy} title={`Write the timeline back to ${reel.name}/work/cutlist.json and words.json`}>
+            <Icon name="save" /> Save to Reel
+          </button>
+        )}
+        <span className="divider" />
         <button className="btn ghost icon" onClick={undo} disabled={!canUndo} title="Undo (Ctrl+Z)" aria-label="Undo">
           <Icon name="undo" />
         </button>
@@ -94,6 +136,7 @@ export function Toolbar({ onExport, onHelp }: { onExport: () => void; onHelp: ()
           <Icon name="download" /> Export
         </button>
       </div>
+      {saved && <ReelDialog result={saved} onClose={() => setSaved(null)} />}
     </header>
   );
 }

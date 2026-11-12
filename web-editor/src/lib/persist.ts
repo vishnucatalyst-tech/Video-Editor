@@ -46,6 +46,9 @@ export const persist = {
   loadMedia: (id: string) => tx<Blob | undefined>(STORE_MEDIA, 'readonly', (s) => s.get(id)),
   deleteMedia: (id: string) => tx(STORE_MEDIA, 'readwrite', (s) => s.delete(id)),
   mediaKeys: () => tx<IDBValidKey[]>(STORE_MEDIA, 'readonly', (s) => s.getAllKeys()),
+  /** Folder handles (File System Access API) are structured-cloneable, so they can live in IndexedDB. */
+  saveHandle: (key: string, handle: unknown) => tx(STORE_PROJECT, 'readwrite', (s) => s.put(handle, `handle:${key}`)),
+  loadHandle: (key: string) => tx<unknown>(STORE_PROJECT, 'readonly', (s) => s.get(`handle:${key}`)),
   clear: async () => {
     await tx(STORE_PROJECT, 'readwrite', (s) => s.clear());
     await tx(STORE_MEDIA, 'readwrite', (s) => s.clear());

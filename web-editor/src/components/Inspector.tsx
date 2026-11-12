@@ -129,6 +129,17 @@ function ClipInspector({ clip, project }: { clip: Clip; project: Project }) {
     <fieldset className="stack" disabled={locked}>
       {locked && <p className="muted">This clip is on a locked track.</p>}
       {asset && <p className="asset-title" title={asset.name}>{asset.name}</p>}
+      {project.reel && asset && asset.kind !== 'audio' && (
+        <Section title="Reel shot">
+          <Field label="Note (saved to the cut list)">
+            <input value={clip.note ?? ''} onChange={(e) => set({ note: e.target.value }, `note:${clip.id}`)} placeholder="e.g. hook, product close-up" />
+          </Field>
+          <p className="muted small">Scale above 100% becomes a punch-in (style guide: 105–115%). Framing, colour and fades are decided by the pipeline at render time.</p>
+        </Section>
+      )}
+      {project.reel && clip.text && (
+        <p className="muted small">Caption text and timing are saved to words.json. The brand caption style is applied by /captions, so the look here is only a preview.</p>
+      )}
 
       {clip.text && (
         <Section title="Text">

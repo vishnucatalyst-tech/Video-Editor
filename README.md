@@ -76,6 +76,21 @@ Weequb-Reels/  (this repo)
 | `/preview` | Renders a 540×960 preview from the cut list, for approval |
 | `/final` | Full-quality export: H.264 at CRF 18, AAC at 192k, two-pass loudness normalisation to −14 LUFS, plus cover frame, SRT and edit log |
 
+### Edit a Reel yourself on the timeline
+
+The web editor (https://weequb-video-editor.vercel.app, or `cd web-editor && npm run dev`) can open any Reel project:
+
+1. Open it in **Chrome or Edge**. They can save straight back into the folder; other browsers download the files instead.
+2. Click **Open Reel** and pick the project folder (`brands/<brand>/projects/<date_topic>`, the one with `raw/` and `work/`).
+3. The timeline shows the cut list:
+   - **Shots** track: one clip per shot. Drag the edges to trim, drag clips to reorder, press `S` to split, and set Scale to 105–115% for a punch-in. Each shot also has a note field.
+   - **Captions** track: one text clip per phrase. Edit the text in the Inspector, and drag or trim to retime it.
+   - **Music** and **Voiceover** tracks: the music's in-point and the volumes.
+4. Click **Save to Reel**. This writes `work/cutlist.json`, `work/words.json` and `work/cutlist.md`, and copies any newly imported media into `raw/`. A dialog lists anything the pipeline will treat differently, such as gaps between shots or speed changes.
+5. Render: `/captions` → `/preview` → `/final` (or ask Claude).
+
+In the editor, framing, colour, fades and caption styling are previews only. The pipeline applies the brand look when it renders, so the final Reel always meets the Instagram spec.
+
 ### What the renderer does
 
 - **Framing:** vertical sources are cover-cropped to 9:16. Anything else gets a blurred background fill (or a centre crop if `fill: crop` is set). Footage is never stretched.

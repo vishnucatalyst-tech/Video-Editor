@@ -23,6 +23,10 @@ npm run dev        # http://localhost:5173
 
 `dist/` is a static site, so you can deploy it to any static host (Netlify, Vercel, GitHub Pages, S3, …).
 
+## Editing a Weequb Reel project
+
+**Open Reel** loads a pipeline project folder (`raw/` + `work/cutlist.json` + `work/words.json`) as a timeline: a Shots track, a Captions track, and Music/Voiceover tracks. **Save to Reel** writes the edits back as `cutlist.json` and `words.json`, ready for `/captions` and `/final`. Chrome and Edge save straight into the folder through the File System Access API, and remember the folder across reloads. Other browsers download the two files instead. The conversion lives in `src/lib/reel.ts`, with tests in `src/lib/reel.test.ts`; the folder I/O is in `src/lib/reelIO.ts`. See the repo root README for the full workflow.
+
 ## Features
 
 **Media**

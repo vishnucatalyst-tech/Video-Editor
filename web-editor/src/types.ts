@@ -14,6 +14,8 @@ export interface MediaAsset {
   thumbnail?: string;
   /** Normalised (0..1) audio peaks for waveform drawing. */
   peaks?: number[];
+  /** Path relative to a Reel project folder (e.g. raw/clip.mp4) when opened from one. */
+  source?: string;
 }
 
 export interface Transform {
@@ -62,6 +64,8 @@ export interface Clip {
   transform: Transform;
   color: ColorAdjust;
   text?: TextStyle;
+  /** Free-text note carried to/from a Reel cut list. */
+  note?: string;
 }
 
 export interface Track {
@@ -87,4 +91,13 @@ export interface Project {
   /** Ordered top-to-bottom in the UI. Visual tracks render bottom-up (top track is on top). */
   tracks: Track[];
   clips: Record<string, Clip>;
+  /** Set when the project was opened from a Weequb Reel project folder (cutlist.json). */
+  reel?: ReelLink;
+}
+
+export interface ReelLink {
+  /** Folder name, e.g. 2026-11-12_demo-promo. */
+  name: string;
+  /** The cutlist.json as loaded; fields the editor doesn't model are written back unchanged. */
+  cutlist: Record<string, unknown>;
 }
