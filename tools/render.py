@@ -80,7 +80,11 @@ def video_graph(cut: dict, proj, brand, W: int, H: int, fps: int, mode: str) -> 
             c += f",scale=ceil({W}*{p}/2)*2:ceil({H}*{p}/2)*2,crop={W}:{H}"
         if lut:
             c += f",lut3d=file='{esc(str(lut))}'"
-        c += f",fps={fps},setsar=1,format=yuv420p,trim=duration={dur},setpts=PTS-STARTPTS[v{i}]"
+        # Exactly round(dur*fps) frames per segment (pad a short one with its last frame), so every
+        # cut lands on the frame the cut list says — no drift against beats, captions or the logo window.
+        n_frames = max(1, round(dur * fps))
+        c += (f",fps={fps},setsar=1,format=yuv420p,tpad=stop_mode=clone:stop_duration=1,"
+              f"trim=end_frame={n_frames},setpts=PTS-STARTPTS[v{i}]")
         chains.append(c)
         labels.append(f"[v{i}]")
 
@@ -115,7 +119,7 @@ def video_graph(cut: dict, proj, brand, W: int, H: int, fps: int, mode: str) -> 
         enable = f":enable='gte(t,{max(0, length - 2):.2f})'" if when == "end" else ""
         if isinstance(cut.get("logo"), dict):  # e.g. {"from": 0, "to": 13.5} to keep it off an end card
             lo, hi = float(cut["logo"].get("from", 0)), float(cut["logo"].get("to", length))
-            enable = f":enable='between(t,{lo:.2f},{hi:.2f})'"
+            enable = f":enable='gte(t,{lo:.3f})*lt(t,{hi:.3f})'"
         idx = sum(1 for a in inputs if a == "-i")
         inputs += ["-i", str(logo)]
         chains.append(f"[{idx}:v]scale={lw}:-1,format=rgba,colorchannelmixer=aa={float(brand.get('logo_opacity', 0.9))}[lg];"

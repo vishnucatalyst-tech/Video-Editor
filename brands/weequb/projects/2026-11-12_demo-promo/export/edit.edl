@@ -1,0 +1,31 @@
+TITLE: 2026-11-12_demo-promo
+FCM: NON-DROP FRAME
+
+001  AX       V     C        00:00:01:00 00:00:02:15 00:00:00:00 00:00:01:15
+* FROM CLIP NAME: 01_hook_zoom.mp4
+* NOTE: hook: fastest zoom + STOP SCROLLING!
+
+002  AX       V     C        00:00:00:00 00:00:02:15 00:00:01:15 00:00:04:00
+* FROM CLIP NAME: 02_raw_clips.mp4
+* NOTE: landscape source → blurred-background fill
+
+003  AX       V     C        00:00:03:00 00:00:05:00 00:00:04:00 00:00:06:00
+* FROM CLIP NAME: 01_hook_zoom.mp4
+* PUNCH-IN: 110% (scale, centred)
+* NOTE: punch-in on 'Scroll-stopping'
+
+004  AX       V     C        00:00:00:15 00:00:03:00 00:00:06:00 00:00:08:15
+* FROM CLIP NAME: 04_beat_viz.mp4
+* NOTE: waveform of the track: cut on the beat
+
+005  AX       V     C        00:00:00:00 00:00:02:15 00:00:08:15 00:00:11:00
+* FROM CLIP NAME: 05_phone_mockup.png
+* NOTE: still with Ken Burns push
+
+006  AX       V     C        00:00:01:00 00:00:03:15 00:00:11:00 00:00:13:15
+* FROM CLIP NAME: 03_gradient_flow.mp4
+* NOTE: brand colours; Tamil caption line
+
+007  AX       V     C        00:00:00:00 00:00:03:00 00:00:13:15 00:00:16:15
+* FROM CLIP NAME: 06_end_card.png
+* NOTE: logo end card + CTA

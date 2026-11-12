@@ -1,6 +1,7 @@
 ---
-description: Render captions in the brand style (libass, or Remotion animated overlay)
-argument-hint: [project] [--style pop|karaoke|minimal] [--position lower|middle|upper] [--remotion]
+name: captions
+description: "Build brand-styled captions for a Reel (pop, karaoke or minimal; libass or Remotion animated overlay; Tamil-capable fonts). Use when captions need to be created, restyled, moved or re-timed after text changes."
+argument-hint: "[project] [--style pop|karaoke|minimal] [--position lower|middle|upper] [--remotion]"
 ---
 Build brand-styled captions for the current project. Arguments: $ARGUMENTS
 

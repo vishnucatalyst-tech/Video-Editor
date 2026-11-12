@@ -64,6 +64,27 @@ Weequb-Reels/  (this repo)
   web-editor/            optional browser timeline editor for hands-on tweaks
 ```
 
+## The Reels agent: skills that keep learning
+
+Open Claude Code in this repo and ask in plain words (English, Tamil or Tanglish), for example "edit a Reel for weequb from these clips". The **reels-editor** agent (`.claude/agents/reels-editor.md`) takes the job and loads its skills as each step comes up. Nothing has to be imported by hand: every session opened in this repo has them.
+
+| Skill | When it's used |
+|---|---|
+| reels-workflow | Any Reel request. Runs the steps in order with approval gates: content pass → edit plan → preview → final |
+| reel-brief | Start of every Reel. Fills the 12-point brief and asks up to 5 questions |
+| reels-craft (+ taste-dictionary) | Every editing decision. Hooks, pacing, structures, vague taste words → numbers |
+| new-reel · transcribe · cutlist · captions · preview · final | The pipeline steps |
+| reel-qc | After every render. Real frame, loudness and format checks |
+| reel-feedback | Any reaction to an edit. Precise change, plus it saves lasting preferences |
+| learn-editing | You share a PDF, notes, a link, or say "always / never…" |
+| style-dna | You share a reference video. Measures it and writes a reusable style guide |
+| app-handoff | Someone edits in CapCut / Premiere / DaVinci. Edit plan, EDL, SRT, steps |
+| repurpose | One long video → several Reels |
+| timeline-handoff | You want to drag things yourself in the web editor |
+| brand-onboard | New brand, or a brand with placeholder values |
+
+**How it learns:** give it material whenever you like (PDFs, notes, article links, reference videos, or simply your corrections). The agent extracts specific rules with numbers and files each one in the right place: the craft skills, a brand's `BRAND.md` → "Learned preferences", `knowledge/editor-preferences.md` for your personal taste, or `knowledge/references/` for styles. It logs every source in `knowledge/INDEX.md`. A correction you give twice becomes a saved rule, so you don't repeat yourself.
+
 ## Slash commands
 
 | Command | What it does |

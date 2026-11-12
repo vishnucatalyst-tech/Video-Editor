@@ -43,6 +43,9 @@ Run tools from the repo root. Each takes the project folder as its first argumen
 | 6. Captions | `python tools/captions.py <project> [--style pop\|karaoke\|minimal] [--position lower\|middle\|upper] [--remotion]` | `work/captions.ass` or `work/captions.mov` |
 | 5. Preview | `python tools/render.py <project> --preview` | `work/preview.mp4` |
 | Final | `python tools/render.py <project> --final` | `export/final.mp4`, `cover.jpg`, `captions.srt`, `edit-log.md` |
+| Jump-cut talking head | `python tools/trim_silence.py <project> --source raw/<clip> [--max-gap 0.4]` | segments without pauses/fillers, re-timed `words.json` |
+| Edit plan / EDL / SRT | `python tools/export_edit.py <project>` | `export/edit-plan.md`, `edit.edl`, `captions.srt` |
+| Reference style | `python tools/analyze_reference.py <file-or-url> --name <name>` | `knowledge/references/<name>/` |
 | Health check | `python tools/doctor.py` | — |
 
 - `work/cutlist.json` is what gets rendered. To change the edit, edit that file: reorder or retime segments, set `punch_in` (1.05–1.15), limit the logo watermark with `"logo": {"from": 0, "to": <sec>}` (e.g. to keep it off an end card), change `music.gain_db` / `duck_db`, or toggle `keep_source_audio`. Keep `cutlist.md` in step when you explain the changes.
@@ -52,3 +55,4 @@ Run tools from the repo root. Each takes the project folder as its first argumen
 - Tamil and Tanglish: use `--model medium` or `large-v3`, and set the caption font to a Tamil-capable one (Noto Sans Tamil, Mukta Malar) in BRAND.md.
 - Fonts: shared fonts go in `fonts/`, brand fonts in `brands/<brand>/assets/fonts/`. Both are passed to libass at render time.
 - Never commit footage: `raw/`, `work/` and `export/` media are git-ignored. Commit `brief.md`, `cutlist.json/md` and `edit-log.md`.
+- The Reels agent and its skills live in `.claude/agents/reels-editor.md` and `.claude/skills/`. What it has learned lives in `knowledge/` (`INDEX.md`, `editor-preferences.md`, `sources/`, `references/`) and in each brand's "Learned preferences". Read those before editing, and add to them after feedback or new learning material (learn-editing).

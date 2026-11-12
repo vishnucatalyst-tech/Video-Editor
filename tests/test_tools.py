@@ -73,3 +73,30 @@ class Cutlist(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TrimSilence(unittest.TestCase):
+    def test_cuts_pauses_and_fillers_and_retimes_words(self):
+        from trim_silence import FILLERS, plan
+
+        words = [W("Hello", 0.5, 0.9), W("everyone", 0.95, 1.5), W("um", 1.6, 1.9), W("today", 2.0, 2.4),
+                 W("three", 3.5, 3.8), W("tips", 3.85, 4.2)]
+        segs, retimed, stats = plan(words, 6.0, max_gap=0.4, pad=0.08, fillers=FILLERS, max_shot=3.0, punch=1.1)
+        self.assertEqual(stats["removed_fillers"], 1)
+        self.assertEqual([[w["word"] for w in s["words"]] for s in segs], [["Hello", "everyone"], ["today"], ["three", "tips"]])
+        self.assertEqual(segs[0]["in"], 0.42)       # 0.5 - pad
+        self.assertTrue(all(b["in"] >= a["out"] for a, b in zip(segs, segs[1:])))
+        self.assertEqual([w["word"] for w in retimed], ["Hello", "everyone", "today", "three", "tips"])
+        self.assertAlmostEqual(retimed[0]["start"], 0.08, places=3)   # starts after the pad on the new timeline
+        self.assertLess(stats["new_duration"], 3.0)                   # 6 s of source → under 3 s of speech
+
+    def test_long_takes_split_with_alternating_punch_in(self):
+        from trim_silence import FILLERS, plan
+
+        words = [W(f"w{i}", i * 0.5, i * 0.5 + 0.45) for i in range(14)]  # one continuous 7 s take
+        segs, _, _ = plan(words, 8.0, max_gap=0.4, pad=0.08, fillers=FILLERS, max_shot=3.0, punch=1.1)
+        self.assertGreaterEqual(len(segs), 3)
+        self.assertTrue(all(s["out"] - s["in"] <= 3.2 for s in segs))
+        self.assertEqual([s["punch_in"] for s in segs[:3]], [1.0, 1.1, 1.0])
+        for a, b in zip(segs, segs[1:]):  # split pieces of one take join seamlessly
+            self.assertAlmostEqual(a["out"], b["in"], places=3)

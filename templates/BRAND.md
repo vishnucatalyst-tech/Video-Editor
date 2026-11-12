@@ -75,9 +75,16 @@ Three adjectives: **___, ___, ___** (e.g. bold, witty, premium)
 ## Do / Don't
 - **Do:**
 - **Don't:**
+- **Words to never use:**
 - **Legal disclaimers** (pricing, health, finance, contests):
 
 ## Reference Reels
 | Link | What to borrow |
 |---|---|
 | | |
+
+## Style reference
+- (optional) `knowledge/references/<name>/style.md` — made with /style-dna from a video the brand loves
+
+## Learned preferences
+<!-- Added automatically from feedback (reel-feedback / learn-editing). One rule per line, dated, with numbers. -->

@@ -1,6 +1,7 @@
 ---
-description: Create a dated Reel project for a brand and probe its raw footage
-argument-hint: <brand> <topic>
+name: new-reel
+description: "Create a dated Reel project for a brand and probe its raw footage. Use when starting a new Reel/short video for a brand or when footage needs to be checked (resolution, fps, duration, audio)."
+argument-hint: "<brand> <topic>"
 ---
 Create a new Reel project: `$ARGUMENTS` (first word = brand, rest = topic).
 
