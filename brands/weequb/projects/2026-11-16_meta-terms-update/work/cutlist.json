@@ -1,0 +1,14 @@
+{
+  "length": 20.0,
+  "fps": 30,
+  "keep_source_audio": false,
+  "source_audio_gain_db": 0,
+  "voiceover": null,
+  "music": {"src": "raw/music_comp.wav", "in": 0.0, "gain_db": 0, "duck_db": 0},
+  "captions": null,
+  "logo": false,
+  "segments": [
+    {"src": "raw/01_scene.mp4", "in": 0.0, "out": 20.0, "note": "premium-motion: hook 0-1.75 / terms cards 1.8-5.75 / 20 NOV struck -> PAUSED 5.8-9.25 / status 9.3-11.75 / tips cards 11.8-16.75 / logo + CTA 16.8-20", "punch_in": 1.0}
+  ],
+  "beats": []
+}

@@ -63,6 +63,14 @@
     if (sweep) sweep.style.left = (-160 + 560 * ss(io(t, at + 0.4, at + 1.0))) + 'px';
   }
 
+  /** Soft accent glow that rises and settles over `d` s, so a held card still has a visual change. */
+  function highlight(el, t, at, d = 0.7) {
+    const k = Math.sin(Math.PI * io(t, at, at + d));
+    if (k <= 0.001) { el.style.borderColor = ''; el.style.boxShadow = ''; return; }
+    el.style.borderColor = `rgba(255,212,0,${0.14 + 0.55 * k})`;
+    el.style.boxShadow = `0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18),0 0 ${70 * k}px rgba(255,212,0,${0.32 * k})`;
+  }
+
   /** Line icons (24x24, stroke only). Add new ones here in the same style: 2.2 stroke, round caps, no fills. */
   const ICONS = {
     bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/>',
@@ -89,5 +97,5 @@
   /** Grain overlay markup. */
   const grain = () => '<svg class="pm-grain" width="1080" height="1920"><filter id="pmn"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#pmn)"/></svg>';
 
-  window.PM = { T, cl, io, ex, ss, enter, drawIcon, scene, ambient, logo, ICONS, icon, card, grain };
+  window.PM = { T, cl, io, ex, ss, enter, drawIcon, scene, ambient, logo, highlight, ICONS, icon, card, grain };
 })();
