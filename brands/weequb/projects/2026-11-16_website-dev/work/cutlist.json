@@ -1,0 +1,123 @@
+{
+  "length": 22.0,
+  "fps": 30,
+  "keep_source_audio": false,
+  "source_audio_gain_db": 0,
+  "voiceover": null,
+  "music": {
+    "src": "raw/music.wav",
+    "in": 0.0,
+    "gain_db": 0,
+    "duck_db": 0
+  },
+  "captions": "work/captions.ass",
+  "logo": {
+    "from": 9.0,
+    "to": 19.0
+  },
+  "segments": [
+    {
+      "src": "raw/01_loading.mp4",
+      "in": 0.0,
+      "out": 1.5,
+      "note": "hook: site stuck loading + impatient taps",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/02_bounce.mp4",
+      "in": 0.0,
+      "out": 2.5,
+      "note": "timer passes 0:03 in red, site swiped away",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/03_mobile.mp4",
+      "in": 0.0,
+      "out": 3.0,
+      "note": "squashed desktop page + pinch, then buried on search page 7",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/04_reveal.mp4",
+      "in": 0.0,
+      "out": 2.0,
+      "note": "yellow burst, Weequb logo reveal (talking head goes here once filmed)",
+      "punch_in": 1.1
+    },
+    {
+      "src": "raw/05_beforeafter.mp4",
+      "in": 0.0,
+      "out": 3.0,
+      "note": "before -> after wipe, new site scrolls",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/06_score.mp4",
+      "in": 0.0,
+      "out": 3.0,
+      "note": "speed/mobile/SEO score rings + feature chips",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/07_enquiries.mp4",
+      "in": 0.0,
+      "out": 4.0,
+      "note": "enquiry notifications stack up",
+      "punch_in": 1.0
+    },
+    {
+      "src": "raw/08_end.mp4",
+      "in": 0.0,
+      "out": 3.0,
+      "note": "end card: COMMENT STORE, logo watermark off",
+      "punch_in": 1.0
+    }
+  ],
+  "beats": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    8.5,
+    9.0,
+    9.5,
+    10.0,
+    10.5,
+    11.0,
+    11.5,
+    12.0,
+    12.5,
+    13.0,
+    13.5,
+    14.0,
+    14.5,
+    15.0,
+    15.5,
+    16.0,
+    16.5,
+    17.0,
+    17.5,
+    18.0,
+    18.5,
+    19.0,
+    19.5,
+    20.0,
+    20.5,
+    21.0,
+    21.5,
+    22.0
+  ]
+}

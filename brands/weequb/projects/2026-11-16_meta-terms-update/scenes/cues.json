@@ -1,0 +1,18 @@
+{
+  "duration": 20.5,
+  "cues": [
+    ["whoosh_soft", 0.0], ["tick_soft", 0.5],
+    ["whoosh", 1.45],
+    ["tick", 2.35], ["tick", 2.63], ["tick", 2.91],
+    ["tick_soft", 3.9], ["tick_soft", 4.5], ["tick_soft", 5.1],
+    ["whoosh", 5.45],
+    ["tick", 6.9], ["boom", 7.45], ["tick_soft", 8.15],
+    ["whoosh", 8.95],
+    ["tick", 10.15], ["tick_soft", 10.45],
+    ["whoosh", 11.45],
+    ["tick", 12.35], ["tick", 12.63], ["tick", 12.91],
+    ["tick_soft", 14.3], ["tick_soft", 14.9], ["tick_soft", 15.5],
+    ["whoosh", 16.45],
+    ["boom", 16.9], ["chime", 17.65]
+  ]
+}

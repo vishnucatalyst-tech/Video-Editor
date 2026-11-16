@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:01,750
+Meta unga website-ah crawl pannuma?
+
+2
+00:00:01,800 --> 00:00:05,750
+Meta-voda pudhu business terms: Meta crawler unga website-ku vandhu product details edukka permission.
+
+3
+00:00:05,800 --> 00:00:09,250
+20 Nov start aaga irundhadhu. 5 Nov-la Meta PAUSE pannidichu.
+
+4
+00:00:09,300 --> 00:00:11,750
+Ippo pazhaya terms dhaan. Thirumba varalaam, Meta innum date sollala.
+
+5
+00:00:11,800 --> 00:00:16,750
+Ready-ah irunga: crawler rules (robots.txt), clean product pages, unga traffic unga control.
+
+6
+00:00:16,800 --> 00:00:20,000
+Weequb Technologies. Free website check venumaa? "WEBSITE"-nu comment pannunga!

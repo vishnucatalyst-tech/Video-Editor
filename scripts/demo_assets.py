@@ -16,6 +16,7 @@ and a placeholder logo.png into --logo-dir.
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import wave
 from pathlib import Path
@@ -34,7 +35,7 @@ def ff(*args: str):
 
 
 def magick(*args: str):
-    exe = "magick" if subprocess.run(["which", "magick"], capture_output=True).returncode == 0 else "convert"
+    exe = "magick" if shutil.which("magick") else "convert"  # Windows has its own unrelated convert.exe; ImageMagick 7 ships magick
     cmd = [exe, *args]
     print("$ " + " ".join(cmd))
     subprocess.run(cmd, check=True)

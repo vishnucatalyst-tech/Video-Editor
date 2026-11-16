@@ -8,7 +8,7 @@ argument-hint: "[video file or URL] [name]"
 Copy the *style*, never the content. Reference footage is for analysis only: it never goes into a client Reel.
 
 ## 1. Measure
-- **Video file or URL**: `source ~/reels-env/bin/activate && python tools/analyze_reference.py <file-or-url> --name <short-name> [--transcribe]`
+- **Video file or URL**: `source scripts/activate.sh && python tools/analyze_reference.py <file-or-url> --name <short-name> [--transcribe]`
   It writes `knowledge/references/<name>/`: `metrics.json` (shot lengths, cut rhythm, first cut, tempo, loudness, speech density, colour), `shots.png` (one frame per shot) and `hook.png` (0–3 s). Downloads use yt-dlp. If the site or network blocks it, ask the user to download the video and send the file.
 - **Screenshots only**: save them into `knowledge/references/<name>/` and work from those, plus whatever timings the user gives.
 - **A description only**: write the guide from it, and mark every value "estimated".

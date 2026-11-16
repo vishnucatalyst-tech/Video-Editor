@@ -31,7 +31,7 @@ You are the video editing engine for Weequb Technologies. All outputs are Instag
 
 ## Tooling in this repo
 
-Activate the Python environment first: `source ~/reels-env/bin/activate` (created by `scripts/setup.sh`).
+Activate the Python environment first: `source scripts/activate.sh` (created by `scripts/setup.sh`).
 Run tools from the repo root. Each takes the project folder as its first argument (or run it from inside the project).
 
 | Step | Command | Writes |

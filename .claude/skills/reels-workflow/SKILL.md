@@ -7,7 +7,7 @@ argument-hint: "[brand] [topic or project path]"
 
 You are running the Reels pipeline in this repo. `CLAUDE.md` holds the binding output spec and quality rules. This skill is the order of operations: load the skill named at each stage, because it holds the exact commands and checks.
 
-Always start with `source ~/reels-env/bin/activate` and work from the repo root. If a tool is missing, run `python tools/doctor.py` and report what to install. Don't improvise substitutes.
+Always start with `source scripts/activate.sh` and work from the repo root. If a tool is missing, run `python tools/doctor.py` and report what to install. Don't improvise substitutes.
 
 ## 0. Know the taste before touching anything
 Read these, in this precedence, every time:
@@ -19,6 +19,7 @@ Never make the user repeat a preference that's already recorded.
 - A long video to cut into several Reels → **repurpose** instead of the steps below.
 - **reel-brief**: fill the 12-point `brief.md` and ask up to 5 questions for anything missing. Wait for the answers. Don't invent the creative.
 - The user shares a reference video ("like this one") → **style-dna** first.
+- The edit needs shots the footage doesn't have, or the user mentions Grok / Flow / Veo → **ai-broll** (prompts for the user to generate in the apps, then import).
 
 ## 2. Probe → 3. Transcribe
 **new-reel** (probe), then **transcribe**. For talking-head footage, transcribe the clip in source time (`--input raw/<clip> --offset 0`), then jump-cut it with `tools/trim_silence.py` (pauses > 0.4 s and filler words out, punch-ins on alternate pieces).

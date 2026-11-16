@@ -58,7 +58,7 @@ def main():
     # Python
     check("python ≥ 3.11", OK if sys.version_info >= (3, 11) else FAIL, sys.version.split()[0])
     in_venv = sys.prefix != sys.base_prefix
-    check("virtualenv active", OK if in_venv else WARN, sys.prefix if in_venv else "run: source ~/reels-env/bin/activate")
+    check("virtualenv active", OK if in_venv else WARN, sys.prefix if in_venv else "run: source scripts/activate.sh")
     for mod, pkg in [("faster_whisper", "faster-whisper"), ("scenedetect", "scenedetect"), ("librosa", "librosa"),
                      ("cv2", "opencv"), ("PIL", "pillow"), ("numpy", "numpy"), ("pydub", "pydub"),
                      ("moviepy", "moviepy"), ("yt_dlp", "yt-dlp")]:

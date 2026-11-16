@@ -1,0 +1,194 @@
+[
+ {
+  "word": "Unga",
+  "start": 0.05,
+  "end": 0.26,
+  "prob": 1.0
+ },
+ {
+  "word": "website",
+  "start": 0.28,
+  "end": 0.5,
+  "prob": 1.0
+ },
+ {
+  "word": "customers-ah",
+  "start": 0.52,
+  "end": 0.73,
+  "prob": 1.0
+ },
+ {
+  "word": "miss",
+  "start": 0.75,
+  "end": 0.96,
+  "prob": 1.0
+ },
+ {
+  "word": "pannudhu!",
+  "start": 0.98,
+  "end": 1.45,
+  "prob": 1.0
+ },
+ {
+  "word": "3",
+  "start": 1.6,
+  "end": 1.91,
+  "prob": 1.0
+ },
+ {
+  "word": "sec",
+  "start": 1.93,
+  "end": 2.24,
+  "prob": 1.0
+ },
+ {
+  "word": "load",
+  "start": 2.26,
+  "end": 2.57,
+  "prob": 1.0
+ },
+ {
+  "word": "aana...",
+  "start": 2.59,
+  "end": 2.89,
+  "prob": 1.0
+ },
+ {
+  "word": "bye",
+  "start": 2.91,
+  "end": 3.22,
+  "prob": 1.0
+ },
+ {
+  "word": "bye!",
+  "start": 3.24,
+  "end": 3.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Mobile-la",
+  "start": 4.1,
+  "end": 4.48,
+  "prob": 1.0
+ },
+ {
+  "word": "sari",
+  "start": 4.5,
+  "end": 4.88,
+  "prob": 1.0
+ },
+ {
+  "word": "illaya?",
+  "start": 4.9,
+  "end": 5.28,
+  "prob": 1.0
+ },
+ {
+  "word": "Google-la",
+  "start": 5.3,
+  "end": 5.68,
+  "prob": 1.0
+ },
+ {
+  "word": "um",
+  "start": 5.7,
+  "end": 6.08,
+  "prob": 1.0
+ },
+ {
+  "word": "illa.",
+  "start": 6.1,
+  "end": 6.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Kavalai",
+  "start": 7.1,
+  "end": 7.44,
+  "prob": 1.0
+ },
+ {
+  "word": "venaam.",
+  "start": 7.46,
+  "end": 7.8,
+  "prob": 1.0
+ },
+ {
+  "word": "Weequb",
+  "start": 7.82,
+  "end": 8.16,
+  "prob": 1.0
+ },
+ {
+  "word": "irukku!",
+  "start": 8.18,
+  "end": 8.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Before.",
+  "start": 9.1,
+  "end": 9.48,
+  "prob": 1.0
+ },
+ {
+  "word": "After.",
+  "start": 9.5,
+  "end": 9.88,
+  "prob": 1.0
+ },
+ {
+  "word": "Pakka",
+  "start": 9.9,
+  "end": 10.28,
+  "prob": 1.0
+ },
+ {
+  "word": "upgrade!",
+  "start": 10.3,
+  "end": 11.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Fast.",
+  "start": 12.1,
+  "end": 12.48,
+  "prob": 1.0
+ },
+ {
+  "word": "Mobile-first.",
+  "start": 12.5,
+  "end": 12.88,
+  "prob": 1.0
+ },
+ {
+  "word": "SEO-ready.",
+  "start": 12.9,
+  "end": 14.9,
+  "prob": 1.0
+ },
+ {
+  "word": "Visitors-ah",
+  "start": 15.1,
+  "end": 15.48,
+  "prob": 1.0
+ },
+ {
+  "word": "customers-ah",
+  "start": 15.5,
+  "end": 15.88,
+  "prob": 1.0
+ },
+ {
+  "word": "maathura",
+  "start": 15.9,
+  "end": 16.28,
+  "prob": 1.0
+ },
+ {
+  "word": "website.",
+  "start": 16.3,
+  "end": 18.9,
+  "prob": 1.0
+ }
+]

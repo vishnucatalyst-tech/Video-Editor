@@ -60,7 +60,7 @@ def main():
         props_path = proj.work / "captions.props.json"
         save_json(props_path, props)
         out = proj.work / "captions.mov"
-        cmd = ["npx", "remotion", "render", "src/index.ts", "Captions", str(out), f"--props={props_path}",
+        cmd = [shutil.which("npx") or "npx", "remotion", "render", "src/index.ts", "Captions", str(out), f"--props={props_path}",
                "--codec=prores", "--prores-profile=4444", "--pixel-format=yuva444p10le", "--image-format=png"]
         browser = shutil.which("chromium") or next((p for p in ("/opt/pw-browsers/chromium",) if Path(p).exists()), None)
         if browser:
