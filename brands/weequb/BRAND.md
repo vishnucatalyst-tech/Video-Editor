@@ -86,7 +86,12 @@ Three adjectives: **___, ___, ___** (e.g. bold, witty, premium)
 | | |
 
 ## Style reference
-- none yet
+- Style reference: knowledge/references/premium-elements/style.md (approved 2026-11-16). Motion graphics are built only with `templates/premium-motion/`.
 
 ## Learned preferences
 <!-- Added automatically from feedback (reel-feedback / learn-editing). One rule per line, dated, with numbers. -->
+- 2026-11-16: Premium element flow is LOCKED. Every icon/element/motion-graphics scene reuses `templates/premium-motion/` (premium.css, premium.js, sfx.py) and copies the layout of `example.html`: hook (setup line y 400, key word y 490, glass panel y 820) → icon cards at y 540 + 230·i → logo + CTA. Change words, icons and card count only. (source: user, "intha flow perfect-ah irukku… exact-ah intha structure, intha components use pannu")
+- 2026-11-16: Entrances are calm: blur 14→0 px, rise 30–90 px, scale 0.96→1, ease-out expo over 0.9–1.1 s, no bounce; elements keep drifting 6 px/s after landing; grouped elements 0.28 s apart. (source: same)
+- 2026-11-16: Scene changes are zoom-through blur dissolves (out: scale 1.10, blur 22 px, 0.35 s; in: 1.06→1). No hard cuts or flashy wipes in motion graphics. (source: same)
+- 2026-11-16: One SFX per event: whoosh 0.3 s before each transition, glass tick at each landing (+0.35 s), low boom on the logo, chime on the CTA, quiet ambient pad under all. (source: same)
+- 2026-11-16: Look: near-black base, gold + blue blurred glows, 7% grain, glass cards, thin line icons (2.2 stroke) that draw on, yellow used only for the key word, icon tiles and CTA. (source: same)

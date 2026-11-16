@@ -1,0 +1,73 @@
+<!doctype html>
+<!-- APPROVED REFERENCE (2026-11-16): hook -> 3 icon cards -> logo + CTA, 5 s. Copy this file to start a new premium Reel,
+     keep the structure and timings, change only the words, icons and number of cards. -->
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="premium.css">
+<script src="premium.js"></script>
+</head>
+<body>
+<div class="pm-bg"></div>
+<div class="pm-orb gold" id="o1"></div>
+<div class="pm-orb blue" id="o2"></div>
+
+<!-- Scene A (0 - 1.55): hook. Setup line + key word in accent + glass panel that tells the problem -->
+<div class="pm-scene" id="A">
+  <div class="abs pm-setup" id="a1" style="top:400px">Unga website</div>
+  <div class="abs pm-key" id="a2" style="top:490px">slow-ah?</div>
+  <div class="abs glass" id="a3" style="left:160px;top:820px;width:760px;height:520px;padding:34px">
+    <div style="display:flex;gap:12px"><i style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.25)"></i><i style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.18)"></i><i style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.12)"></i></div>
+    <div style="margin-top:28px;height:58px;border-radius:29px;background:rgba(255,255,255,.07);font:500 28px I;color:rgba(255,255,255,.55);padding:12px 28px">yourshop.in</div>
+    <div style="margin-top:22px;height:5px;border-radius:3px;background:rgba(255,255,255,.08)"><div id="bar" style="height:5px;border-radius:3px;background:#FFD400;width:10%"></div></div>
+    <div style="margin-top:44px;display:flex;gap:22px">
+      <div style="flex:1.4;height:250px;border-radius:24px;background:rgba(255,255,255,.06)"></div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:18px"><div style="height:34px;border-radius:12px;background:rgba(255,255,255,.07)"></div><div style="height:34px;width:70%;border-radius:12px;background:rgba(255,255,255,.07)"></div><div style="height:140px;border-radius:20px;background:rgba(255,255,255,.05)"></div></div>
+    </div>
+    <svg id="spin" viewBox="0 0 80 80" style="position:absolute;left:340px;top:300px;width:80px;height:80px;transform-origin:40px 40px"><circle cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="6"/><path d="M40 10 A30 30 0 0 1 70 40" fill="none" stroke="#FFD400" stroke-width="6" stroke-linecap="round"/></svg>
+  </div>
+</div>
+
+<!-- Scene B (1.6 - 3.35): kicker + icon cards (230 px pitch, 0.28 s stagger) -->
+<div class="pm-scene" id="B"><div class="abs pm-kicker" id="bk" style="top:420px">Weequb builds</div></div>
+
+<!-- Scene C (3.45 - end): logo lockup + brand + CTA pill -->
+<div class="pm-scene" id="C">
+  <div class="abs pm-logo" id="lgw" style="top:560px"><img src="../../brands/weequb/assets/logo/logo.png"><div class="pm-sweep" id="sweep"></div></div>
+  <div class="abs pm-brand" id="wq" style="top:920px">WEEQUB</div>
+  <div class="abs pm-kicker" id="wt" style="top:1040px">Technologies</div>
+  <div class="abs pm-cta" id="cta" style="top:1170px">Comment <em>“STORE”</em></div>
+</div>
+
+<script>
+const CARDS = [ // [icon, title, sub] — add/remove rows; layout and timing follow automatically
+  ['bolt', 'Fast loading', 'Opens before they scroll away'],
+  ['phone', 'Mobile-first', 'Perfect on every phone'],
+  ['search', 'SEO-ready', 'Found on Google from day one'],
+];
+const B = document.getElementById('B');
+CARDS.forEach(([ic, ti, su], i) => B.insertAdjacentHTML('beforeend', PM.card('c' + i, 540 + i * 230, ic, ti, su)));
+document.body.insertAdjacentHTML('beforeend', PM.grain());
+const $ = id => document.getElementById(id);
+
+window.setT = t => {
+  PM.ambient(t, $('o1'), $('o2'));
+  // A: hook
+  PM.scene($('A'), t, 0, 1.55, { first: true });
+  PM.enter($('a1'), t, -0.25, PM.T.TEXT_IN);
+  PM.enter($('a2'), t, 0.15, PM.T.TEXT_IN, 70);
+  PM.enter($('a3'), t, 0.35, PM.T.PANEL_IN, 90);
+  $('spin').style.transform = `rotate(${t * 300}deg)`;
+  $('bar').style.width = (10 + 12 * t) + '%';
+  // B: cards
+  PM.scene(B, t, 1.6, 3.35, { lift: true });
+  PM.enter($('bk'), t, 1.65, 0.8, 20);
+  CARDS.forEach((_, i) => { const at = 1.8 + i * PM.T.STAGGER; PM.enter($('c' + i), t, at, PM.T.CARD_IN, 70); PM.drawIcon($('c' + i), t, at); });
+  // C: logo + CTA
+  PM.scene($('C'), t, 3.45, null);
+  PM.logo($('lgw'), $('sweep'), t, 3.5);
+  PM.enter($('wq'), t, 3.75, PM.T.TEXT_IN, 40);
+  PM.enter($('wt'), t, 3.95, PM.T.TEXT_IN, 30);
+  PM.enter($('cta'), t, 4.2, 0.8, 30);
+};
+window.setT(0);
+window.ready = Promise.all([document.fonts.ready, ...[...document.images].map(i => i.decode().catch(() => {}))]);
+</script></body></html>

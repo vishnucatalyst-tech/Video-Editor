@@ -5,6 +5,7 @@ Everything the Reels agent has learned, and where it went. Maintained by the **l
 | Date | Source | Type | What changed | Record |
 |---|---|---|---|---|
 | 2026-11-12 | *Edit Videos Your Way with Claude — The Briefing Guide* (PDF, 9 pp.) | guide | 12-point brief + intake questions (reel-brief), taste dictionary + structures + power moves + red flags (reels-craft), content-pass gate + edit-plan table (reels-workflow), precise feedback + learning (reel-feedback), app deliverables (app-handoff), Style DNA (style-dna), long → short clips (repurpose), silence/filler trimming (tools/trim_silence.py) | [sources/2026-11-12_edit-videos-your-way-with-claude.md](sources/2026-11-12_edit-videos-your-way-with-claude.md) |
+| 2026-11-16 | User approval of the premium motion test (conversation) | preference | Locked the premium element flow as Weequb's standard: component library + timings + SFX kit in `templates/premium-motion/`, rules in weequb BRAND.md, style guide marked approved | [sources/2026-11-16_premium-motion-locked.md](sources/2026-11-16_premium-motion-locked.md) |
 
 ## Style references
 Saved style guides live in `references/<name>/style.md` (made by **style-dna**).
@@ -13,7 +14,7 @@ AI B-roll prompts that worked (or didn't) are kept in [broll-prompts.md](broll-p
 
 | Name | Source | Summary | Used by |
 |---|---|---|---|
-| [premium-elements](references/premium-elements/style.md) | instagram.com/reel/DfZEYA8PBUu (not downloadable — estimated from user's description) | Calm premium motion: blur-in entrances, slow drift, glass cards, line icons, blur-dissolve transitions, one SFX per event | 2026-11-16_premium-style-test |
+| [premium-elements](references/premium-elements/style.md) | instagram.com/reel/DfZEYA8PBUu (not downloadable — estimated from user's description) | **Approved & locked.** Calm premium motion: blur-in entrances, slow drift, glass cards, line icons, blur-dissolve transitions, one SFX per event | weequb (BRAND.md), templates/premium-motion |
 
 ## Tool gaps
 - **AI video generation from the pipeline**: SuperGrok and Google Flow are subscription web apps with no API. Flow can be automated on the user's own computer with the unofficial flow-mcp (see README › Connect Google Flow). Grok Imagine is manual (the ai-broll skill writes the prompts and imports the clips). Official automation would need separately billed API keys (xAI API, Gemini API/Veo).

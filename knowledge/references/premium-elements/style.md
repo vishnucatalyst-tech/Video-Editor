@@ -1,7 +1,7 @@
-# Style DNA — premium-elements (ESTIMATED)
+# Style DNA — premium-elements (APPROVED — locked 2026-11-16)
 
 **Source:** https://www.instagram.com/reel/DfZEYA8PBUu/ — could not be downloaded (Instagram blocked from this environment).
-**Status:** every value below is *estimated* from the user's description (2026-11-16), not measured. Re-run `tools/analyze_reference.py <file> --name premium-elements` once the video file is shared, then replace the estimates.
+**Status: APPROVED & LOCKED (2026-11-16).** The user approved the rendered flow ("this flow is perfect, use exactly this structure and these components"). The values below are now the standard, implemented in `templates/premium-motion/`. They were built from the user's description, not measured from the reference. Re-run `tools/analyze_reference.py <file> --name premium-elements` once the video file is shared, then replace the estimates.
 
 User's words (Tamil, summarised): premium transitions; premium elements and icons; elements move in slow motion; every element enters calmly with no distraction; each entrance has a matching SFX; the whole video feels premium — use this kind of premium template / design structure.
 
@@ -27,7 +27,7 @@ User's words (Tamil, summarised): premium transitions; premium elements and icon
 - No pipeline captions (`captions: null`); text is designed into the motion-graphics layer.
 - Punch-ins: none — replaced by continuous slow drift.
 - Music: ambient pad, `duck_db` only if a VO is added (−14).
-- Motion template: `brands/weequb/projects/2026-11-16_premium-style-test/scenes/premium.html` (`enter()` and the blur-dissolve transition are the reusable pieces).
+- Motion template (locked): `templates/premium-motion/` — components, timings (`PM.T`), icon set, SFX kit and the approved `example.html`.
 
 ## Tool gaps
 - The cut-list pipeline can't animate elements itself; premium motion is built as HTML scenes rendered with Playwright, then fed in as clips.

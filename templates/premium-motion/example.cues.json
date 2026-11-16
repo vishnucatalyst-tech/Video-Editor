@@ -1,0 +1,14 @@
+{
+  "duration": 5.5,
+  "cues": [
+    ["whoosh_soft", 0.0],
+    ["tick_soft", 0.45],
+    ["whoosh", 1.25],
+    ["tick", 2.15],
+    ["tick", 2.43],
+    ["tick", 2.71],
+    ["whoosh", 3.05],
+    ["boom", 3.55],
+    ["chime", 4.3]
+  ]
+}

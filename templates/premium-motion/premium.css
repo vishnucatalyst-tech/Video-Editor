@@ -1,0 +1,41 @@
+/* Weequb premium motion — LOCKED component styles (approved 2026-11-16). Reuse as-is; add new components, don't restyle these. */
+@font-face{font-family:M;src:url(../../fonts/Montserrat-Variable.ttf);font-weight:100 900}
+@font-face{font-family:I;src:url(../../fonts/Inter-Variable.ttf);font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0a0c11}
+body{font-family:I,sans-serif;color:#fff}
+
+/* backdrop: near-black radial base + two drifting glows + 7% grain */
+.pm-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#161b27 0%,#0a0c11 70%)}
+.pm-orb{position:absolute;border-radius:50%;filter:blur(120px)}
+.pm-orb.gold{width:700px;height:700px;background:rgba(255,212,0,.22)}
+.pm-orb.blue{width:800px;height:800px;background:rgba(70,100,255,.20)}
+.pm-grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none}
+
+/* a scene = full-frame layer that the transitions scale/blur/fade */
+.pm-scene{position:absolute;inset:0;will-change:transform,filter,opacity}
+.abs{position:absolute}
+
+/* glass surface */
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.14);
+  border-radius:40px;box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18);backdrop-filter:blur(20px)}
+
+/* type */
+.pm-kicker{left:0;right:0;text-align:center;font:600 30px I;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.pm-setup{left:0;right:0;text-align:center;font:500 76px I;color:rgba(255,255,255,.88)}
+.pm-key{left:0;right:0;text-align:center;font:800 150px M;color:#FFD400;letter-spacing:-1px}
+
+/* icon card: 820x190 glass row, accent icon tile + title + sub. Stack at 230 px pitch (540, 770, 1000…) */
+.pm-card{left:130px;width:820px;height:190px;display:flex;align-items:center;padding:0 44px;gap:40px}
+.pm-ic{width:112px;height:112px;border-radius:32px;background:rgba(255,212,0,.10);border:1.5px solid rgba(255,212,0,.35);display:flex;align-items:center;justify-content:center;flex:none}
+.pm-ic svg{width:60px;height:60px;fill:none;stroke:#FFD400;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pm-card b{display:block;font:700 52px M;letter-spacing:.5px}
+.pm-card span{display:block;font:400 30px I;color:rgba(255,255,255,.62);margin-top:6px}
+
+/* logo lockup + CTA pill */
+.pm-logo{left:390px;width:300px;height:300px;border-radius:70px;overflow:hidden}
+.pm-logo img{width:300px;height:300px;display:block}
+.pm-sweep{position:absolute;top:-50px;width:120px;height:400px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:rotate(20deg)}
+.pm-brand{left:0;right:0;text-align:center;font:800 96px M;letter-spacing:6px}
+.pm-cta{left:290px;width:500px;height:110px;border-radius:55px;border:2px solid #FFD400;background:rgba(255,212,0,.08);display:flex;align-items:center;justify-content:center;font:700 44px M;color:#fff}
+.pm-cta em{font-style:normal;color:#FFD400;margin-left:14px}
