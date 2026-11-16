@@ -5,7 +5,7 @@ from pathlib import Path
 
 LINES = [  # (start, end, caption text)
     (0.05, 1.45, "Unga website customers-ah miss pannudhu!"),
-    (1.6, 3.9, "3 sec load aana... bye bye"),
+    (1.6, 3.9, "3 sec load aana... bye bye!"),
     (4.1, 6.9, "Mobile-la sari illaya? Google-la um illa."),
     (7.1, 8.9, "Kavalai venaam. Weequb irukku!"),
     (9.1, 11.9, "Before. After. Pakka upgrade!"),

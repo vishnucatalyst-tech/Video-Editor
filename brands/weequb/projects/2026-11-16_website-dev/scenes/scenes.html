@@ -91,7 +91,7 @@ const scenes={
    S.append(el(`<img id="lg" src="${LOGO}" class="abs" style="left:390px;top:560px;width:300px;height:300px">`));
    S.append(el(`<div class="abs" id="wq" style="left:0;right:0;top:900px;text-align:center;font:900 150px M;color:#111;letter-spacing:4px">WEEQUB</div>`));
    S.append(el(`<div class="abs label" id="tc" style="left:0;right:0;top:1070px;text-align:center;color:#111">Technologies</div>`));},
-  set(t){const r=eo(io(t,0,0.35))*2400;circ.style.transform=`translate(-50%,-50%)`;circ.style.width=circ.style.height=Math.max(10,r)+'px';
+  set(t){const r=eo(io(t,0,0.35))*2800;circ.style.transform=`translate(-50%,-50%)`;circ.style.width=circ.style.height=Math.max(10,r)+'px';
    const k=io(t,0.25,0.75);lg.style.transform=`scale(${k>0?back(k):0}) rotate(${(1-k)*-20}deg)`;
    const w=eo(io(t,0.5,0.9));wq.style.opacity=w;wq.style.transform=`translateY(${(1-w)*80}px) scale(${1+0.03*t})`;
    const c=eo(io(t,0.75,1.1));tc.style.opacity=c;}},
@@ -113,8 +113,8 @@ const scenes={
      <div style="margin:0 30px;padding:30px;border-radius:26px;background:#1d2433;font:700 28px M;color:#fff">★★★★★ Customers love it</div>
     </div></div>
    <div id="div" style="position:absolute;top:0;bottom:0;width:6px;background:#FFD400;box-shadow:0 0 20px #FFD400"></div>`));
-   S.append(el(`<div class="abs label" id="lb" style="left:0;top:1390px;width:540px;text-align:center;color:#ff6b6b">Before</div>`));
-   S.append(el(`<div class="abs label" id="la" style="left:540px;top:1390px;width:540px;text-align:center;color:#FFD400">After</div>`));},
+   S.append(el(`<div class="abs label" id="lb" style="left:290px;top:1250px;padding:10px 26px;border-radius:30px;background:#ff3b3b;color:#fff">Before</div>`));
+   S.append(el(`<div class="abs label" id="la" style="right:290px;top:1250px;padding:10px 26px;border-radius:30px;background:#FFD400;color:#111">After</div>`));},
   set(t){const w=eo(io(t,0.15,1.15)),W=536;
    document.getElementById('new').style.clipPath=`inset(0 ${(1-w)*100}% 0 0)`;div.style.left=(w*W-3)+'px';div.style.opacity=w<1?1:0;
    nsc.style.transform=`translateY(${-eo(io(t,1.4,3.0))*620}px)`;

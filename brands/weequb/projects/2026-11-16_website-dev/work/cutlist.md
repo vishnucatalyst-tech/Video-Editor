@@ -2,12 +2,12 @@
 
 No camera footage yet: every shot is an animated scene from `scenes/scenes.html` (rendered by `scenes/render_scenes.js`).
 Music: original 120 BPM bed (`scenes/make_music.py`), every cut on a beat. Captions: pop, upper case, lower third.
-Logo watermark 0–19 s, off on the end card.
+Logo watermark 9–19 s only (off on the hook, the yellow reveal and the end card).
 
 | Time | Clip | Visual | Caption |
 |---|---|---|---|
 | 0.0–1.5 | 01_loading | Phone: site stuck loading, impatient taps | UNGA WEBSITE CUSTOMERS-AH MISS PANNUDHU! |
-| 1.5–4.0 | 02_bounce | Timer passes 0:03 in red, site swiped away | 3 SEC LOAD AANA... BYE BYE |
+| 1.5–4.0 | 02_bounce | Timer passes 0:03 in red, site swiped away | 3 SEC LOAD AANA... BYE BYE! |
 | 4.0–7.0 | 03_mobile | Squashed desktop page, pinch-zoom, buried on search page 7 | MOBILE-LA SARI ILLAYA? GOOGLE-LA UM ILLA. |
 | 7.0–9.0 | 04_reveal | Yellow burst, Weequb logo reveal (punch-in 1.1) | KAVALAI VENAAM. WEEQUB IRUKKU! |
 | 9.0–12.0 | 05_beforeafter | Old site → new site wipe, new site scrolls | BEFORE. AFTER. PAKKA UPGRADE! |

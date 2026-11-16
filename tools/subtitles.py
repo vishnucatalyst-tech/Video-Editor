@@ -95,21 +95,28 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     fmt = (lambda s: s.upper()) if upper else (lambda s: s)
 
     if style == "karaoke":
-        for g in group_words(words, max_words=5, max_chars=30):
+        kgroups = group_words(words, max_words=5, max_chars=30)
+        for gi, g in enumerate(kgroups):
             parts = []
             for i, w in enumerate(g):
                 nxt = g[i + 1]["start"] if i + 1 < len(g) else w["end"]
                 dur_cs = max(1, int(round((nxt - w["start"]) * 100)))
                 parts.append(f"{{\\kf{dur_cs}}}{_esc(fmt(w['word']))}")
-            events.append((g[0]["start"], g[-1]["end"] + 0.15, " ".join(parts)))
+            nxt_g = kgroups[gi + 1][0]["start"] if gi + 1 < len(kgroups) else float("inf")
+            events.append((g[0]["start"], min(g[-1]["end"] + 0.15, nxt_g), " ".join(parts)))
         # karaoke fills from Secondary (accent) to Primary; swap so unsung = white, sung = accent
         header = header.replace(f"{text_c},{accent_c}", f"{accent_c},{text_c}", 1)
     elif style == "minimal":
-        for g in group_words(words, max_words=6, max_chars=34):
-            events.append((g[0]["start"], g[-1]["end"] + 0.1, f"{{\\fad(80,80)\\bord3\\shad0}}" + _esc(fmt(" ".join(w["word"] for w in g)))))
+        mgroups = group_words(words, max_words=6, max_chars=34)
+        for gi, g in enumerate(mgroups):
+            nxt_g = mgroups[gi + 1][0]["start"] if gi + 1 < len(mgroups) else float("inf")
+            events.append((g[0]["start"], min(g[-1]["end"] + 0.1, nxt_g), f"{{\\fad(80,80)\\bord3\\shad0}}" + _esc(fmt(" ".join(w["word"] for w in g)))))
     else:  # pop: phrase stays, current word highlighted in accent, phrase pops in
-        for g in group_words(words, max_words=3, max_chars=20):
+        groups = group_words(words, max_words=3, max_chars=20)
+        for gi, g in enumerate(groups):
             end_g = g[-1]["end"] + 0.12
+            if gi + 1 < len(groups):  # never hold a phrase into the next one (two lines on screen at once)
+                end_g = min(end_g, groups[gi + 1][0]["start"])
             for i, w in enumerate(g):
                 start = w["start"] if i else g[0]["start"]
                 end = g[i + 1]["start"] if i + 1 < len(g) else end_g
