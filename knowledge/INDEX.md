@@ -13,11 +13,12 @@ AI B-roll prompts that worked (or didn't) are kept in [broll-prompts.md](broll-p
 
 | Name | Source | Summary | Used by |
 |---|---|---|---|
-| — | | | |
+| [premium-elements](references/premium-elements/style.md) | instagram.com/reel/DfZEYA8PBUu (not downloadable — estimated from user's description) | Calm premium motion: blur-in entrances, slow drift, glass cards, line icons, blur-dissolve transitions, one SFX per event | 2026-11-16_premium-style-test |
 
 ## Tool gaps
 - **AI video generation from the pipeline**: SuperGrok and Google Flow are subscription web apps with no API. Flow can be automated on the user's own computer with the unofficial flow-mcp (see README › Connect Google Flow). Grok Imagine is manual (the ai-broll skill writes the prompts and imports the clips). Official automation would need separately billed API keys (xAI API, Gemini API/Veo).
 Things the knowledge asks for that the pipeline can't render yet. Don't fake these: tell the user.
+- **Element animation / premium motion graphics**: render.py only cuts clips; animated elements are built as HTML scenes rendered with Playwright (see premium-elements). **Speed ramps / slow motion of real footage** aren't supported yet.
 - **SFX on text pop-ups** (whoosh/pop): no SFX track in the renderer yet. Ask for licensed SFX in `sfx/` and add an `sfx` list to the cut list.
 - **Transitions other than hard cuts** (fades, L-cuts, speed ramps): not supported by `render.py`. Shot-level fades are preview-only in the web editor.
 - **B-roll overlays over a voice track** (picture-in-picture, cutaways while the A-roll audio continues): not supported yet. Today, shots replace each other and the audio follows the voiceover or source.

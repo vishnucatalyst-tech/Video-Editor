@@ -1,0 +1,99 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:M;src:url(../../../../../fonts/Montserrat-Variable.ttf);font-weight:100 900}
+@font-face{font-family:I;src:url(../../../../../fonts/Inter-Variable.ttf);font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0a0c11}
+body{font-family:I,sans-serif;color:#fff}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#161b27 0%,#0a0c11 70%)}
+.orb{position:absolute;border-radius:50%;filter:blur(120px)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay}
+.layer{position:absolute;inset:0;will-change:transform,filter,opacity}
+.abs{position:absolute}
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.14);
+  border-radius:40px;box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18);backdrop-filter:blur(20px)}
+.kicker{font:600 30px I;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.card{left:130px;width:820px;height:190px;display:flex;align-items:center;padding:0 44px;gap:40px}
+.ic{width:112px;height:112px;border-radius:32px;background:rgba(255,212,0,.10);border:1.5px solid rgba(255,212,0,.35);display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:60px;height:60px;fill:none;stroke:#FFD400;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.card b{display:block;font:700 52px M;letter-spacing:.5px}
+.card span{display:block;font:400 30px I;color:rgba(255,255,255,.62);margin-top:6px}
+</style></head>
+<body>
+<div id="bg"></div>
+<div class="orb" id="o1" style="width:700px;height:700px;background:rgba(255,212,0,.22)"></div>
+<div class="orb" id="o2" style="width:800px;height:800px;background:rgba(70,100,255,.20)"></div>
+
+<!-- Scene A: hook -->
+<div class="layer" id="A">
+  <div class="abs" id="a1" style="left:0;right:0;top:400px;text-align:center;font:500 76px I;color:rgba(255,255,255,.88)">Unga website</div>
+  <div class="abs" id="a2" style="left:0;right:0;top:490px;text-align:center;font:800 150px M;color:#FFD400;letter-spacing:-1px">slow-ah?</div>
+  <div class="abs glass" id="a3" style="left:160px;top:820px;width:760px;height:520px;padding:34px">
+    <div style="display:flex;gap:12px"><i style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.25)"></i><i style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.18)"></i><i style="width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.12)"></i></div>
+    <div style="margin-top:28px;height:58px;border-radius:29px;background:rgba(255,255,255,.07);font:500 28px I;color:rgba(255,255,255,.55);padding:12px 28px">yourshop.in</div>
+    <div style="margin-top:22px;height:5px;border-radius:3px;background:rgba(255,255,255,.08)"><div id="bar" style="height:5px;border-radius:3px;background:#FFD400;width:10%"></div></div>
+    <div style="margin-top:44px;display:flex;gap:22px">
+      <div class="sk" style="flex:1.4;height:250px;border-radius:24px;background:rgba(255,255,255,.06)"></div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:18px"><div class="sk" style="height:34px;border-radius:12px;background:rgba(255,255,255,.07)"></div><div class="sk" style="height:34px;width:70%;border-radius:12px;background:rgba(255,255,255,.07)"></div><div class="sk" style="height:140px;border-radius:20px;background:rgba(255,255,255,.05)"></div></div>
+    </div>
+    <svg id="spin" viewBox="0 0 80 80" style="position:absolute;left:340px;top:300px;width:80px;height:80px"><circle cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="6"/><path d="M40 10 A30 30 0 0 1 70 40" fill="none" stroke="#FFD400" stroke-width="6" stroke-linecap="round"/></svg>
+  </div>
+</div>
+
+<!-- Scene B: three premium icon cards -->
+<div class="layer" id="B">
+  <div class="abs kicker" id="bk" style="left:0;right:0;top:420px;text-align:center">Weequb builds</div>
+  <div class="abs glass card" id="c0" style="top:540px"><div class="ic"><svg viewBox="0 0 24 24"><path class="d" d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div><div><b>Fast loading</b><span>Opens before they scroll away</span></div></div>
+  <div class="abs glass card" id="c1" style="top:770px"><div class="ic"><svg viewBox="0 0 24 24"><rect class="d" x="7" y="2" width="10" height="20" rx="2.5"/><path class="d" d="M11 18h2"/></svg></div><div><b>Mobile-first</b><span>Perfect on every phone</span></div></div>
+  <div class="abs glass card" id="c2" style="top:1000px"><div class="ic"><svg viewBox="0 0 24 24"><circle class="d" cx="11" cy="11" r="7"/><path class="d" d="m20 20-4-4"/></svg></div><div><b>SEO-ready</b><span>Found on Google from day one</span></div></div>
+</div>
+
+<!-- Scene C: logo + CTA -->
+<div class="layer" id="C">
+  <div class="abs" id="lgw" style="left:390px;top:560px;width:300px;height:300px;border-radius:70px;overflow:hidden">
+    <img id="lg" src="../../../assets/logo/logo.png" style="width:300px;height:300px;display:block">
+    <div id="sweep" class="abs" style="top:-50px;width:120px;height:400px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:rotate(20deg)"></div>
+  </div>
+  <div class="abs" id="wq" style="left:0;right:0;top:920px;text-align:center;font:800 96px M;letter-spacing:6px">WEEQUB</div>
+  <div class="abs kicker" id="wt" style="left:0;right:0;top:1040px;text-align:center">Technologies</div>
+  <div class="abs" id="cta" style="left:290px;top:1170px;width:500px;height:110px;border-radius:55px;border:2px solid #FFD400;background:rgba(255,212,0,.08);display:flex;align-items:center;justify-content:center;font:700 44px M;color:#fff">Comment <span style="color:#FFD400;margin-left:14px">“STORE”</span></div>
+</div>
+
+<svg id="grain" width="1080" height="1920"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<script>
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), io=(t,a,b)=>cl((t-a)/(b-a));
+const ex=x=>x>=1?1:1-Math.pow(2,-10*x);            // ease-out expo: fast start, long calm settle
+const ss=x=>x*x*(3-2*x);                             // smoothstep for transitions
+const $=id=>document.getElementById(id);
+// calm entrance: blur 14px→0, rise 50px, scale .96→1 over `d` s, then keep drifting slowly ("slow motion")
+function enter(el,t,at,d=0.9,rise=50){const k=ex(io(t,at,at+d)),drift=Math.max(0,t-at)*-6;
+  el.style.opacity=k;el.style.filter=`blur(${(1-k)*14}px)`;el.style.transform=`translateY(${(1-k)*rise+drift}px) scale(${0.96+0.04*k})`;}
+// scene transition: zoom-through blur dissolve
+function out(el,t,at,d=0.35){const k=ss(io(t,at,at+d));return k}
+document.querySelectorAll('svg .d').forEach(p=>{const L=p.getTotalLength?p.getTotalLength():80;p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.dataset.L=L});
+window.setT=t=>{
+  $('o1').style.transform=`translate(${-120+60*Math.sin(t*.5)}px,${200+40*t}px)`;
+  $('o2').style.transform=`translate(${520-50*t}px,${1100-30*Math.sin(t*.6)}px)`;
+  // A
+  enter($('a1'),t,-0.25,0.9);enter($('a2'),t,0.15,0.9,70);enter($('a3'),t,0.35,1.1,90);
+  $('spin').style.transform=`rotate(${t*300}deg)`;$('spin').style.transformOrigin='40px 40px';
+  $('bar').style.width=(10+12*t)+'%';
+  const ao=out($('A'),t,1.55);$('A').style.opacity=1-ao;$('A').style.filter=`blur(${ao*22}px)`;$('A').style.transform=`scale(${1+0.10*ao})`;
+  // B
+  const bi=ss(io(t,1.6,1.95));$('B').style.opacity=bi;$('B').style.transform=`scale(${1.06-0.06*bi})`;
+  enter($('bk'),t,1.65,0.8,20);
+  [0,1,2].forEach(i=>{const at=1.8+i*0.28;enter($('c'+i),t,at,1.0,70);
+    $('c'+i).querySelectorAll('.d').forEach(p=>p.style.strokeDashoffset=p.dataset.L*(1-ex(io(t,at+0.15,at+0.85))));});
+  const bo=out($('B'),t,3.35);$('B').style.opacity=bi*(1-bo);$('B').style.filter=`blur(${bo*22}px)`;
+  if(bo>0)$('B').style.transform=`scale(${1+0.10*bo}) translateY(${-60*bo}px)`;
+  // C
+  const ci=ss(io(t,3.45,3.8));$('C').style.opacity=ci;
+  const lk=ex(io(t,3.5,4.4));$('lgw').style.opacity=lk;$('lgw').style.filter=`blur(${(1-lk)*16}px)`;$('lgw').style.transform=`scale(${0.86+0.14*lk+Math.max(0,t-3.5)*0.01})`;
+  $('sweep').style.left=(-160+560*ss(io(t,3.9,4.5)))+'px';
+  enter($('wq'),t,3.75,0.9,40);enter($('wt'),t,3.95,0.9,30);enter($('cta'),t,4.2,0.8,30);
+};
+window.setT(0);
+window.ready=Promise.all([document.fonts.ready,...[...document.images].map(i=>i.decode().catch(()=>{}))]);
+</script></body></html>

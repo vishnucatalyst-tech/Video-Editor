@@ -1,0 +1,14 @@
+{
+  "length": 5.0,
+  "fps": 30,
+  "keep_source_audio": false,
+  "source_audio_gain_db": 0,
+  "voiceover": null,
+  "music": {"src": "raw/music.wav", "in": 0.0, "gain_db": 0, "duck_db": 0},
+  "captions": null,
+  "logo": false,
+  "segments": [
+    {"src": "raw/01_premium.mp4", "in": 0.0, "out": 5.0, "note": "premium motion test: hook -> icon cards -> logo + CTA, blur-dissolve transitions", "punch_in": 1.0}
+  ],
+  "beats": []
+}
